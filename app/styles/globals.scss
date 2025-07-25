@@ -1,0 +1,19 @@
+@use "tailwindcss";
+@use "@/app/styles/colors.scss";
+
+@layer base {
+  body {
+    font-family: var(--font-montserrat), sans-serif;
+    @apply text-foreground antialiased;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .font-montserrat {
+    font-family: var(--font-montserrat), sans-serif;
+  }
+}
