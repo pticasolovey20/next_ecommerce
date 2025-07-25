@@ -13,8 +13,13 @@ import PaymentList from "@/components/footer/PaymentList";
 const Footer = () => {
   return (
     <footer className="px-4 py-8 bg-muted">
-      <div className="max-w-screen-2xl w-full mx-auto">
-        <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-x-6 gap-y-4">
+      <div className="max-w-screen-xl w-full mx-auto">
+        <div
+          className={classNames(
+            "grid sm:grid-cols-2 gap-x-12 gap-y-6",
+            "xl:flex xl:justify-between"
+          )}
+        >
           <FooterSection section={COMPANY_SECTION} />
           <FooterSection section={SERVICES_SECTION} />
           <FooterSection section={SOCIAL_SECTION} />
@@ -30,7 +35,6 @@ const Footer = () => {
           )}
         >
           <span>2025 © All rights reserved</span>
-
           <PaymentList />
         </div>
       </div>

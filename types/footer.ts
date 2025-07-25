@@ -5,6 +5,7 @@ export interface FooterLinkData {
 }
 
 export interface FooterSectionData {
+  index: number;
   title: string;
   links: FooterLinkData[];
 }

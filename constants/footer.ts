@@ -1,6 +1,7 @@
 import { FooterSectionData } from "@/types/footer";
 
 export const COMPANY_SECTION: FooterSectionData = {
+  index: 1,
   title: "About Company",
   links: [
     { id: "about", href: "#", label: "About Us" },
@@ -13,6 +14,7 @@ export const COMPANY_SECTION: FooterSectionData = {
 };
 
 export const SERVICES_SECTION: FooterSectionData = {
+  index: 2,
   title: "Services",
   links: [
     { id: "marketplace", href: "#", label: "Sell With Us" },
@@ -25,6 +27,7 @@ export const SERVICES_SECTION: FooterSectionData = {
 };
 
 export const SOCIAL_SECTION: FooterSectionData = {
+  index: 3,
   title: "Follow Us",
   links: [
     { id: "facebook", href: "#", label: "Facebook" },
@@ -37,6 +40,7 @@ export const SOCIAL_SECTION: FooterSectionData = {
 };
 
 export const LEGAL_SECTION: FooterSectionData = {
+  index: 4,
   title: "Legal Information",
   links: [
     { id: "privacy", href: "#", label: "Privacy Policy" },
