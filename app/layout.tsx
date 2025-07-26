@@ -4,6 +4,9 @@ import type { Metadata } from "next";
 import { ReactNode } from "react";
 import { classNames } from "@/utils/classNames";
 
+import QueryProvider from "@/components/QueryProvider";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+
 import { SidebarProvider } from "@/ui/sidebar";
 import Header from "@/components/header/Header";
 import AppSidebar from "@/components/AppSidebar";
@@ -33,21 +36,25 @@ const RootLayout = ({ children }: RootLayoutProps) => {
         suppressHydrationWarning
         className={classNames(montserrat.variable, "min-h-[100dvh] h-full flex flex-col")}
       >
-        <SidebarProvider>
-          <Header />
-          <AppSidebar />
+        <QueryProvider>
+          <ReactQueryDevtools initialIsOpen={false} />
 
-          <main
-            className={classNames(
-              "flex-1 max-w-screen-2xl w-full",
-              "px-4 md:px-8 xl:px-12 mx-auto"
-            )}
-          >
-            {children}
-          </main>
+          <SidebarProvider>
+            <Header />
+            <AppSidebar />
 
-          <Footer />
-        </SidebarProvider>
+            <main
+              className={classNames(
+                "flex-1 max-w-screen-2xl w-full",
+                "px-4 md:px-8 xl:px-12 mx-auto"
+              )}
+            >
+              {children}
+            </main>
+
+            <Footer />
+          </SidebarProvider>
+        </QueryProvider>
       </body>
     </html>
   );
