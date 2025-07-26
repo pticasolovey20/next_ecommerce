@@ -5,7 +5,7 @@ const Banner = () => {
     <div
       className={classNames(
         "h-[300px] flex items-center justify-center",
-        "rounded-xl border-2 border-foreground",
+        "rounded-xl border-2 border-muted-foreground",
         "p-4 my-12 shadow-md bg-muted"
       )}
     >
