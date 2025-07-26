@@ -1,24 +1,43 @@
-import { NAVIGATION } from "@/constants/navigation";
+"use client";
 
-import AppSidebar from "@/components/AppSidebar";
+import { useSidebarContext } from "@/ui/sidebar/context";
+import { useIsMounted } from "@/hooks/useIsMounted";
+import { useEffect, useState } from "react";
+import { calculateScrollBarWidth } from "@/utils/calculateScrollBarWidth";
+import { classNames } from "@/utils/classNames";
+
+import { MdMenu } from "react-icons/md";
 
 const Header = () => {
-  return (
-    <header className="h-16 flex items-center p-4 bg-muted">
-      <AppSidebar />
+  const { isOpen, handleOpenSidebar } = useSidebarContext();
+  const [scrollBarWidth, setScrollBarWidth] = useState(0);
+  const isMounted = useIsMounted();
 
-      <div className="max-w-screen-2xl w-full flex items-center justify-center mx-auto">
-        <nav className="hidden md:block">
-          <ul className="flex items-center gap-4">
-            {NAVIGATION.map(({ label, href }) => (
-              <li key={label} className="px-4">
-                <a href={href} className="text-xl font-semibold">
-                  {label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
+  useEffect(() => {
+    if (!isMounted) return;
+
+    const scrollBarWidth = calculateScrollBarWidth();
+    setScrollBarWidth(scrollBarWidth);
+  }, [isMounted]);
+
+  return (
+    <header className="w-full h-16">
+      <div className="w-full fixed top-0 left-0 bg-background shadow-sm z-[30]">
+        <div
+          className={classNames(
+            "max-w-screen-2xl w-full h-16",
+            "flex items-center",
+            "px-4 md:px-8 xl:px-12 mx-auto"
+          )}
+        >
+          <button
+            onClick={handleOpenSidebar}
+            className="left-0 w-7 h-7 cursor-pointer"
+            style={{ marginLeft: isOpen ? `-${scrollBarWidth / 2}px` : "0px" }}
+          >
+            <MdMenu className="w-full h-full" />
+          </button>
+        </div>
       </div>
     </header>
   );

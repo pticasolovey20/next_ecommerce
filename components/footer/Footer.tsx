@@ -8,16 +8,16 @@ import { classNames } from "@/utils/classNames";
 
 import FooterSection from "@/components/footer/FooterSection";
 import Separator from "@/ui/Separator";
-import PaymentList from "@/components/footer/PaymentList";
 
 const Footer = () => {
   return (
-    <footer className="px-4 py-8 bg-muted">
-      <div className="max-w-screen-xl w-full mx-auto">
+    <footer className="bg-muted">
+      <div className="max-w-screen-2xl w-full px-4 md:px-8 xl:px-12 mx-auto">
         <div
           className={classNames(
             "grid sm:grid-cols-2 gap-x-12 gap-y-6",
-            "xl:flex xl:justify-between"
+            "xl:flex xl:justify-between",
+            "py-8"
           )}
         >
           <FooterSection section={COMPANY_SECTION} />
@@ -28,14 +28,8 @@ const Footer = () => {
 
         <Separator />
 
-        <div
-          className={classNames(
-            "flex flex-col justify-between items-center gap-4",
-            "text-sm font-medium"
-          )}
-        >
-          <span>2025 © All rights reserved</span>
-          <PaymentList />
+        <div className="flex flex-col justify-between items-center gap-4 py-8">
+          <span className="text-sm font-medium">2025 © All rights reserved</span>
         </div>
       </div>
     </footer>

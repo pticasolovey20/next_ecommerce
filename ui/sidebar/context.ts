@@ -2,7 +2,8 @@ import { createContext, useContext } from "react";
 
 interface SidebarContextState {
   isOpen: boolean;
-  toggleSidebar: () => void;
+  handleOpenSidebar: () => void;
+  handleCloseSidebar: () => void;
 }
 
 const SidebarContext = createContext<SidebarContextState | null>(null);

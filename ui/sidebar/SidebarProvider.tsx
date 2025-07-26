@@ -10,10 +10,13 @@ interface SidebarProviderProps {
 const SidebarProvider = ({ children }: SidebarProviderProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const toggleSidebar = () => setIsOpen((prev) => !prev);
+  const handleOpenSidebar = () => setIsOpen(true);
+  const handleCloseSidebar = () => setIsOpen(false);
 
   return (
-    <SidebarContext.Provider value={{ isOpen, toggleSidebar }}>{children}</SidebarContext.Provider>
+    <SidebarContext.Provider value={{ isOpen, handleOpenSidebar, handleCloseSidebar }}>
+      {children}
+    </SidebarContext.Provider>
   );
 };
 

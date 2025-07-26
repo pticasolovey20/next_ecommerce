@@ -1,5 +1,7 @@
+import ProductList from "@/components/product/ProductList";
+
 const Home = () => {
-  return <main className="flex-1"></main>;
+  return <ProductList />;
 };
 
 export default Home;

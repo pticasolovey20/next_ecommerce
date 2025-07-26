@@ -4,7 +4,9 @@ import type { Metadata } from "next";
 import { ReactNode } from "react";
 import { classNames } from "@/utils/classNames";
 
+import { SidebarProvider } from "@/ui/sidebar";
 import Header from "@/components/header/Header";
+import AppSidebar from "@/components/AppSidebar";
 import Footer from "@/components/footer/Footer";
 
 import "@/app/styles/globals.scss";
@@ -31,9 +33,21 @@ const RootLayout = ({ children }: RootLayoutProps) => {
         suppressHydrationWarning
         className={classNames(montserrat.variable, "min-h-[100dvh] h-full flex flex-col")}
       >
-        <Header />
-        {children}
-        <Footer />
+        <SidebarProvider>
+          <Header />
+          <AppSidebar />
+
+          <main
+            className={classNames(
+              "flex-1 max-w-screen-2xl w-full",
+              "px-4 md:px-8 xl:px-12 mx-auto"
+            )}
+          >
+            {children}
+          </main>
+
+          <Footer />
+        </SidebarProvider>
       </body>
     </html>
   );
