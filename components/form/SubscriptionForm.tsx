@@ -18,7 +18,7 @@ const SubscriptionForm = () => {
           "w-[120px] font-semibold",
           "border-2 border-muted-foreground",
           "rounded-lg rounded-l-none",
-          "text-muted px-2 bg-muted-foreground"
+          "text-muted px-2 bg-muted-foreground cursor-pointer"
         )}
       >
         Subscribe
