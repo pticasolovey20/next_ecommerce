@@ -11,7 +11,7 @@ const FooterLinks = ({ alignmentClassName, links }: FooterLinksProps) => {
     <ul className={classNames("flex flex-col", alignmentClassName)}>
       {links.map(({ id, href, label }) => (
         <li key={id}>
-          <a href={href} target="_blank" className="text-muted-foreground">
+          <a href={href} target="_blank" className="font-medium text-muted-foreground">
             {label}
           </a>
         </li>
