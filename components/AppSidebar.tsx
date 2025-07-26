@@ -3,6 +3,7 @@
 import { useSidebarContext } from "@/ui/sidebar/context";
 
 import { Sidebar } from "@/ui/sidebar";
+import IconButton from "@/ui/IconButton";
 import { MdClose } from "react-icons/md";
 
 const AppSidebar = () => {
@@ -10,9 +11,9 @@ const AppSidebar = () => {
 
   return (
     <Sidebar>
-      <button onClick={handleCloseSidebar} className="w-7 h-7 cursor-pointer">
+      <IconButton onClick={handleCloseSidebar} className="w-9 h-9 hover:bg-muted z-[50]">
         <MdClose className="w-full h-full" />
-      </button>
+      </IconButton>
     </Sidebar>
   );
 };
