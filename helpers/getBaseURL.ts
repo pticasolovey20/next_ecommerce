@@ -1,9 +1,9 @@
 export const getBaseURL = () => {
-  if (process.env.VERCEL_ENV === "production") {
+  if (process.env.NODE_ENV === "production") {
     return process.env.BASE_URL || "https://your-production-api.com";
   }
 
-  if (process.env.VERCEL_ENV === "preview") {
+  if (process.env.NODE_ENV === "development") {
     return process.env.BASE_URL || "https://your-staging-api.com";
   }
 
