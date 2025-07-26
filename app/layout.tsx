@@ -1,7 +1,13 @@
 import { Montserrat } from "next/font/google";
 import type { Metadata } from "next";
+
 import { ReactNode } from "react";
 import { classNames } from "@/utils/classNames";
+
+import { SidebarProvider } from "@/ui/sidebar";
+import Header from "@/components/header/Header";
+import AppSidebar from "@/components/AppSidebar";
+import Footer from "@/components/footer/Footer";
 
 import "@/app/styles/globals.scss";
 
@@ -22,9 +28,26 @@ interface RootLayoutProps {
 
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={classNames(montserrat.variable, "antialiased")}>
-        {children}
+    <html lang="en">
+      <body
+        suppressHydrationWarning
+        className={classNames(montserrat.variable, "min-h-[100dvh] h-full flex flex-col")}
+      >
+        <SidebarProvider>
+          <Header />
+          <AppSidebar />
+
+          <main
+            className={classNames(
+              "flex-1 max-w-screen-2xl w-full",
+              "px-4 md:px-8 xl:px-12 mx-auto"
+            )}
+          >
+            {children}
+          </main>
+
+          <Footer />
+        </SidebarProvider>
       </body>
     </html>
   );

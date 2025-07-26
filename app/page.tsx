@@ -1,8 +1,15 @@
+import { Fragment } from "react";
+import Banner from "@/components/Banner";
+import ProductList from "@/components/product/ProductList";
+import Subscription from "@/components/Subscription";
+
 const Home = () => {
   return (
-    <main className="min-h-[100dvh] h-full">
-      <span className="font-medium">INITIAL</span>
-    </main>
+    <Fragment>
+      <Banner />
+      <ProductList />
+      <Subscription />
+    </Fragment>
   );
 };
 
