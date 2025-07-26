@@ -11,7 +11,11 @@ const AppSidebar = () => {
 
   return (
     <Sidebar>
-      <IconButton onClick={handleCloseSidebar} className="w-9 h-9 hover:bg-muted z-[50]">
+      <IconButton
+        onClick={handleCloseSidebar}
+        ariaLabel="Close sidebar"
+        className="w-9 h-9 hover:bg-muted z-[50]"
+      >
         <MdClose className="w-full h-full" />
       </IconButton>
     </Sidebar>

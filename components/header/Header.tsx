@@ -40,6 +40,7 @@ const Header = () => {
           <div style={{ marginLeft: isOpen ? `-${scrollBarWidth / 2 + 4}px` : "-4px" }}>
             <IconButton
               onClick={handleOpenSidebar}
+              ariaLabel="Open sidebar"
               className={classNames("w-9 h-9 hover:bg-muted z-[50]")}
             >
               <MdMenu className="w-full h-full" />
