@@ -2,7 +2,7 @@ import { classNames } from "@/utils/classNames";
 
 const SubscriptionForm = () => {
   return (
-    <form className="h-12 w-full flex">
+    <form className="h-12 w-full flex overflow-hidden drop-shadow-lg">
       <input
         placeholder="Type your email here"
         className={classNames(

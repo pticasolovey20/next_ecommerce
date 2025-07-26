@@ -23,7 +23,13 @@ const Header = () => {
 
   return (
     <header className="w-full h-16">
-      <div className="w-full fixed top-0 left-0 bg-background shadow-sm z-[30]">
+      <div
+        className={classNames(
+          "w-full fixed top-0 left-0",
+          "border-b-2 border-muted-foreground",
+          "bg-background shadow-sm z-[30]"
+        )}
+      >
         <div
           className={classNames(
             "max-w-screen-2xl w-full h-16",

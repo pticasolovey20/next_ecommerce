@@ -11,7 +11,7 @@ import Separator from "@/ui/Separator";
 
 const Footer = () => {
   return (
-    <footer className="border-t-2 border-foreground bg-muted">
+    <footer className="mt-16 border-t-2 border-foreground bg-muted">
       <div className="max-w-screen-2xl w-full px-4 md:px-8 xl:px-12 mx-auto">
         <div
           className={classNames(

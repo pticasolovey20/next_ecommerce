@@ -2,7 +2,7 @@ import SubscriptionForm from "@/components/form/SubscriptionForm";
 
 const Subscription = () => {
   return (
-    <div className="max-w-2xl w-full py-24 mx-auto">
+    <div className="max-w-2xl w-full py-24 mx-auto ">
       <h3 className="md:text-center text-2xl md:text-3xl font-bold">
         Subscribe now and get 20% off
       </h3>

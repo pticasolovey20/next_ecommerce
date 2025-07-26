@@ -41,7 +41,7 @@ const Sidebar = ({ children }: SidebarProps) => {
         className={classNames(
           "fixed top-0 left-0 z-[50]",
           "min-h-[100dvh] h-full max-w-[400px] w-full",
-          "p-4 bg-muted shadow-md",
+          "p-4 border-r-2 border-muted-foreground bg-muted shadow-md",
           isOpen ? "translate-x-0" : "-translate-x-full",
           "transition-transform duration-500 ease-in-out"
         )}
