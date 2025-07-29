@@ -1,4 +1,4 @@
-import ProductSectionContainer from "@/components/product/ProductSectionContainer";
+import ProductDetailSekeleton from "@/components/product/ProductDetailSekeleton";
 
 const ProductDetailsCard = () => {
   return (
@@ -7,43 +7,21 @@ const ProductDetailsCard = () => {
         {/* LEFT SIDE */}
         <div className="relative w-full">
           <div className="sticky top-20 w-full">
-            <ProductSectionContainer className="h-[800px]">
-              <div></div>
-            </ProductSectionContainer>
+            <ProductDetailSekeleton className="h-[800px]" />
           </div>
         </div>
 
         {/* RIGHT SIDE */}
         <div className="w-full">
-          {/* DESCRIPTION SECTION */}
-          <ProductSectionContainer>
-            <div></div>
-          </ProductSectionContainer>
-
-          {/* DESCRIPTION SECTION */}
-          <ProductSectionContainer>
-            <div></div>
-          </ProductSectionContainer>
-
-          {/* DESCRIPTION SECTION */}
-          <ProductSectionContainer>
-            <div></div>
-          </ProductSectionContainer>
-
-          {/* DESCRIPTION SECTION */}
-          <ProductSectionContainer>
-            <div></div>
-          </ProductSectionContainer>
+          <ProductDetailSekeleton />
+          <ProductDetailSekeleton />
+          <ProductDetailSekeleton />
+          <ProductDetailSekeleton />
         </div>
       </div>
 
-      <ProductSectionContainer>
-        <div></div>
-      </ProductSectionContainer>
-
-      <ProductSectionContainer>
-        <div></div>
-      </ProductSectionContainer>
+      <ProductDetailSekeleton />
+      <ProductDetailSekeleton />
     </div>
   );
 };
