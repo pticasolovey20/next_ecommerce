@@ -1,8 +1,16 @@
+export interface ProductAssetData {
+  id: string;
+  src: string;
+  alt: string;
+  productId: string;
+}
+
 export interface ProductData {
-  id: number;
+  id: string;
   title: string;
   description: string;
-  assets: { src: string; alt: string }[];
+  color?: string;
+  assets: ProductAssetData[];
   price: number;
   rating: number;
 }

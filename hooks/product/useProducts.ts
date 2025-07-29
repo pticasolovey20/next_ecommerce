@@ -1,7 +1,8 @@
+import { UseProductsReturn } from "@/hooks/product/types";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { productService } from "@/services/ProductService";
 
-export const useProducts = (limit: number) => {
+export const useProducts = (limit: number): UseProductsReturn => {
   const { isLoading, isError, data, hasNextPage, fetchNextPage, isFetchingNextPage, error } =
     useInfiniteQuery({
       queryKey: ["products", limit],

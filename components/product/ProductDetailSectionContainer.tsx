@@ -10,10 +10,7 @@ const ProductDetailSectionContainer = ({ className, children }: ProductSectionCo
   return (
     <div
       className={classNames(
-        "w-full h-[300px]",
-        "flex items-center justify-center",
-        "rounded-lg border-2 border-muted-foreground",
-        "mt-4 bg-muted shadow-lg",
+        "w-full rounded-lg border-2 border-muted-foreground mt-4 p-4 bg-muted shadow-lg",
         className
       )}
     >
