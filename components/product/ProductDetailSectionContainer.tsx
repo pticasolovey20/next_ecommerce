@@ -6,7 +6,7 @@ interface ProductSectionContainerProps {
   children: ReactNode;
 }
 
-const ProductSectionContainer = ({ className, children }: ProductSectionContainerProps) => {
+const ProductDetailSectionContainer = ({ className, children }: ProductSectionContainerProps) => {
   return (
     <div
       className={classNames(
@@ -22,4 +22,4 @@ const ProductSectionContainer = ({ className, children }: ProductSectionContaine
   );
 };
 
-export default ProductSectionContainer;
+export default ProductDetailSectionContainer;

@@ -1,12 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-
-const PRODUCTS = Array.from({ length: 100 }, (_, index) => ({
-  id: index + 1,
-  title: `Product Title ${index + 1}`,
-  description: `Very looooong product description for product ${index + 1}`,
-  price: Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000,
-  rating: +(Math.random() * 4 + 1).toFixed(1),
-}));
+import { PRODUCTS } from "@/constants/product";
 
 export async function GET(request: NextRequest) {
   try {
