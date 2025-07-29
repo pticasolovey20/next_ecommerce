@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { PRODUCTS } from "@/constants/product";
+import { prismaClient } from "@/lib/prismaClient";
 
 export async function GET(request: NextRequest) {
   try {
@@ -8,20 +8,21 @@ export async function GET(request: NextRequest) {
     const page = parseInt(searchParams.get("page") || "1");
     const limit = parseInt(searchParams.get("limit") || "10");
 
-    const startIndex = (page - 1) * limit;
-    const endIndex = startIndex + limit;
-    const totalPages = Math.ceil(PRODUCTS.length / limit);
+    const products = await prismaClient.product.findMany({
+      skip: (page - 1) * limit,
+      take: limit,
+      include: { assets: true },
+    });
 
-    const products = PRODUCTS.slice(startIndex, endIndex);
+    const total = await prismaClient.product.count();
+    const totalPages = Math.ceil(total / limit);
 
     return NextResponse.json({
       success: true,
       products,
-
       pagination: {
         limit,
-        total: PRODUCTS.length,
-
+        total,
         page,
         totalPages,
         hasNextPage: page < totalPages,
@@ -29,10 +30,10 @@ export async function GET(request: NextRequest) {
     });
   } catch (error) {
     if (error instanceof Error) {
-      return NextResponse.json({
-        success: false,
-        message: error.message,
-      });
+      return NextResponse.json(
+        { success: false, message: error instanceof Error ? error.message : "Unknown error" },
+        { status: 500 }
+      );
     }
   }
 }

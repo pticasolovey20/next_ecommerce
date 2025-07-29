@@ -17,9 +17,10 @@ model Product {
   id                String  @id @default(cuid())
   title             String
   description       String
+  color             String?
   assets            ProductAsset[]
   price             Int
-  rating            Int
+  rating            Int?
 }
 
 model ProductAsset {
