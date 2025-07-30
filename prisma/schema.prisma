@@ -14,19 +14,17 @@ datasource db {
 }
 
 model Product {
-  id                String  @id @default(cuid())
+  id                String          @id @default(cuid())
   title             String
   description       String
   color             String?
-  assets            ProductAsset[]
   price             Int
+  oldPrice          Int?
+  discount          Int?
   rating            Int?
+
+  assets            Json?
+  features          Json?
 }
 
-model ProductAsset {
-  id                String  @id @default(cuid())
-  src               String
-  alt               String
-  product           Product @relation(fields: [productId], references: [id])
-  productId         String
-}
+ 

@@ -11,7 +11,6 @@ export async function GET(request: NextRequest) {
     const products = await prismaClient.product.findMany({
       skip: (page - 1) * limit,
       take: limit,
-      include: { assets: true },
     });
 
     const total = await prismaClient.product.count();
