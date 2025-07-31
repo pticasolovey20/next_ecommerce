@@ -4,14 +4,16 @@ import {
   SOCIAL_SECTION,
   LEGAL_SECTION,
 } from "@/constants/footer";
+
 import { classNames } from "@/utils/classNames";
 
 import FooterSection from "@/components/footer/FooterSection";
+import Subscription from "@/components/Subscription";
 import Separator from "@/ui/Separator";
 
 const Footer = () => {
   return (
-    <footer className="mt-16 border-t-2 border-foreground bg-muted">
+    <footer className="mt-16 border-t border-gray-200/50 bg-white/40">
       <div className="max-w-screen-2xl w-full px-4 md:px-8 xl:px-12 mx-auto">
         <div
           className={classNames(
@@ -26,6 +28,8 @@ const Footer = () => {
           <FooterSection section={LEGAL_SECTION} />
         </div>
 
+        <Separator />
+        <Subscription />
         <Separator />
 
         <div className="flex flex-col justify-between items-center gap-4 py-8">

@@ -1,27 +1,30 @@
 import { classNames } from "@/utils/classNames";
 
+import Button from "@/ui/Button";
+
 const ActionButtons = () => {
   return (
     <div className="flex flex-col sm:flex-row gap-4">
-      <button
+      <Button
+        size="lg"
         className={classNames(
-          "text-white font-semibold text-lg uppercase tracking-wide",
-          "min-w-0 w-full py-4 px-8 rounded-xl shadow-lg bg-gradient-to-r from-gray-700 to-gray-800 cursor-pointer",
-          "hover-lift"
+          "w-full hover-lift",
+          "font-semibold text-lg text-gray-700 uppercase tracking-wide"
         )}
       >
         buy
-      </button>
+      </Button>
 
-      <button
+      <Button
+        size="lg"
+        variant="secondary"
         className={classNames(
-          "font-semibold text-lg text-gray-700 uppercase tracking-wide",
-          "min-w-0 w-full py-4 px-8 rounded-xl border border-gray-300 shadow-lg bg-white/60 cursor-pointer",
-          "hover-lift"
+          "w-full hover-lift",
+          "font-semibold text-lg text-gray-700 uppercase tracking-wide"
         )}
       >
         add to cart
-      </button>
+      </Button>
     </div>
   );
 };

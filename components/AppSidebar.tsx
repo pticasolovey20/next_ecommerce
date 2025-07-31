@@ -3,7 +3,7 @@
 import { useSidebarContext } from "@/ui/sidebar/context";
 
 import { Sidebar } from "@/ui/sidebar";
-import IconButton from "@/ui/IconButton";
+import Button from "@/ui/Button";
 import { MdClose } from "react-icons/md";
 
 const AppSidebar = () => {
@@ -11,13 +11,15 @@ const AppSidebar = () => {
 
   return (
     <Sidebar>
-      <IconButton
+      <Button
+        size="icon"
+        variant="ghost"
+        aria-label="Close sidebar"
         onClick={handleCloseSidebar}
-        ariaLabel="Close sidebar"
-        className="w-9 h-9 hover:bg-muted z-[50]"
+        className="w-9 h-9"
       >
         <MdClose className="w-full h-full" />
-      </IconButton>
+      </Button>
     </Sidebar>
   );
 };

@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { useProductById } from "@/hooks/product/useProductById";
 
-import ProductSkeleton from "@/components/product/ProductSkeleton";
+import ProductSkeleton from "@/ui/Skeleton";
 import ProductRating from "@/components/product/details/ProductRating";
 import ProductPrice from "@/components/product/details/ProductPrice";
 import ProductSpecifications from "@/components/product/details/ProductSpecifications";

@@ -1,11 +1,12 @@
 import { ProductData } from "@/types/product";
 import { classNames } from "@/utils/classNames";
 
+import CardContainer from "@/components/card/CardConainer";
 import Link from "next/link";
-import IconButton from "@/ui/IconButton";
-import { IoMdHeartEmpty } from "react-icons/io";
-import { RiShoppingCartLine } from "react-icons/ri";
 import Image from "next/image";
+import Button from "@/ui/Button";
+import { FaHeart } from "react-icons/fa";
+import { RiShoppingCartLine } from "react-icons/ri";
 
 interface ProductCardProps {
   product: ProductData;
@@ -13,23 +14,24 @@ interface ProductCardProps {
 
 const ProductCard = ({ product }: ProductCardProps) => {
   return (
-    <div
+    <CardContainer
       className={classNames(
-        "group relative w-full",
-        "rounded-md border-2 border-muted-foreground",
-        "shadow-lg bg-muted overflow-hidden"
+        "group relative w-full p-0 rounded-xl",
+        "hover:shadow-xl hover:-translate-y-1 transition-transform duration-300"
       )}
     >
       <Link href={`/products/${product.id}`}>
         <div className="relative w-full aspect-square bg-background overflow-hidden">
           <Image
             fill
-            loading="lazy"
+            priority
+            quality={75}
             src={product.assets[0].src}
             alt={product.assets[0].alt}
+            sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
             className={classNames(
               "object-contain p-4",
-              "group-hover:scale-110 group-hover:rotate-5",
+              "group-hover:scale-110",
               "transition-transform duration-300 ease-in-out"
             )}
           />
@@ -42,30 +44,24 @@ const ProductCard = ({ product }: ProductCardProps) => {
         </div>
       </Link>
 
-      <IconButton
-        ariaLabel="Add to favorite"
-        className={classNames(
-          "absolute top-4 right-4",
-          "w-8 h-8 z-[10]",
-          "hover:text-red-500 hover:bg-muted-foreground/5",
-          "transition-colors duration-200 ease-in-out"
-        )}
+      <Button
+        size="icon"
+        variant="ghost"
+        aria-label="Add to favorite"
+        className="absolute top-4 right-4 hover:text-red-500"
       >
-        <IoMdHeartEmpty className="w-full h-full" />
-      </IconButton>
+        <FaHeart className="w-full h-full" />
+      </Button>
 
-      <IconButton
-        ariaLabel="Add to cart"
-        className={classNames(
-          "absolute bottom-4 right-4",
-          "w-9 h-9 p-2 z-[10]",
-          "hover:text-green-500 hover:bg-muted-foreground/5",
-          "transition-colors duration-200 ease-in-out"
-        )}
+      <Button
+        size="icon"
+        variant="ghost"
+        aria-label="Add to cart"
+        className="absolute bottom-4 right-4 hover:text-green-500"
       >
         <RiShoppingCartLine className="w-full h-full" />
-      </IconButton>
-    </div>
+      </Button>
+    </CardContainer>
   );
 };
 

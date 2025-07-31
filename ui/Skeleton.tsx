@@ -1,11 +1,11 @@
 import { classNames } from "@/utils/classNames";
 
-interface ProductSkeletonProps {
+interface SkeletonProps {
   className?: string;
 }
 
-const ProductSkeleton = ({ className }: ProductSkeletonProps) => {
+const Skeleton = ({ className }: SkeletonProps) => {
   return <div className={classNames("rounded bg-gray-200 animate-pulse", className)} />;
 };
 
-export default ProductSkeleton;
+export default Skeleton;

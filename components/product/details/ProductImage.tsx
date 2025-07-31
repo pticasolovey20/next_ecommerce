@@ -5,7 +5,7 @@ import { useProductById } from "@/hooks/product/useProductById";
 import { classNames } from "@/utils/classNames";
 
 import Image from "next/image";
-import ProductSkeleton from "../ProductSkeleton";
+import ProductSkeleton from "../../../ui/Skeleton";
 
 interface ProductImageProps {
   productId: string;
@@ -20,7 +20,7 @@ const ProductImage = ({ productId }: ProductImageProps) => {
     return (
       <div className="space-y-6">
         {/* MAIN IMAGE */}
-        <ProductSkeleton className="w-full h-96 flex justify-center rounded-xl" />
+        <ProductSkeleton className="w-full h-60 sm:h-96 flex justify-center rounded-xl" />
 
         {/* THUMBNAILS */}
         <div className="grid grid-cols-4 gap-4">
@@ -40,8 +40,8 @@ const ProductImage = ({ productId }: ProductImageProps) => {
   return (
     <div className="space-y-6">
       {/* MAIN IMAGE */}
-      <div className="relative w-full flex justify-center shadow-xl rounded-xl bg-white/60 hover-lift">
-        <div className="relative h-70 sm:h-96 aspect-square cursor-pointer">
+      <div className="relative w-full flex justify-center p-4 shadow-xl rounded-xl bg-white/60 hover-lift">
+        <div className="relative h-60 sm:h-96 aspect-square cursor-pointer">
           <Image
             fill
             priority
@@ -78,7 +78,7 @@ const ProductImage = ({ productId }: ProductImageProps) => {
               index === selectedImage ? "border-gray-400" : "border-transparent"
             )}
           >
-            <Image fill priority src={src} alt={alt} className="w-full h-full object-contain" />
+            <Image fill priority src={src} alt={alt} className="w-full h-full object-contain p-2" />
           </div>
         ))}
       </div>

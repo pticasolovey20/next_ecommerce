@@ -1,28 +1,27 @@
+import { subscribe } from "@/actions/subscribe";
 import { classNames } from "@/utils/classNames";
+
+import Button from "@/ui/Button";
 
 const SubscriptionForm = () => {
   return (
-    <form className="h-12 w-full flex overflow-hidden drop-shadow-lg">
+    <form
+      action={subscribe}
+      className="w-full flex flex-col sm:flex-row gap-3 md:w-auto drop-shadow-lg"
+    >
       <input
-        placeholder="Type your email here"
+        type="email"
+        placeholder="Ваш email"
         className={classNames(
-          "flex-1 min-w-0",
-          "border-2 border-r-0 border-muted-foreground",
-          "rounded-lg rounded-r-none px-4 outline-none"
+          "h-12 flex-1 md:w-64 px-4 py-3",
+          "border border-gray-300 rounded-xl bg-white/80",
+          "focus:outline-none focus:ring-2 focus:ring-gray-400"
         )}
       />
 
-      <button
-        type="submit"
-        className={classNames(
-          "w-[120px] font-semibold",
-          "border-2 border-muted-foreground",
-          "rounded-lg rounded-l-none",
-          "text-muted px-2 bg-muted-foreground cursor-pointer"
-        )}
-      >
+      <Button type="submit" variant="primary" className="sm:max-w-[150px] w-full h-12">
         Subscribe
-      </button>
+      </Button>
     </form>
   );
 };

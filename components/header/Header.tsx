@@ -6,8 +6,8 @@ import { useEffect, useState } from "react";
 import { calculateScrollBarWidth } from "@/utils/calculateScrollBarWidth";
 import { classNames } from "@/utils/classNames";
 
+import Button from "@/ui/Button";
 import { MdMenu } from "react-icons/md";
-import IconButton from "@/ui/IconButton";
 
 const Header = () => {
   const { isOpen, handleOpenSidebar } = useSidebarContext();
@@ -26,8 +26,8 @@ const Header = () => {
       <div
         className={classNames(
           "w-full fixed top-0 left-0",
-          "border-b-2 border-muted-foreground",
-          "bg-background shadow-sm z-[30]"
+          "border-b border-gray-200/50",
+          "bg-white shadow-sm z-[30]"
         )}
       >
         <div
@@ -37,14 +37,16 @@ const Header = () => {
             "px-4 md:px-8 xl:px-12 mx-auto"
           )}
         >
-          <div style={{ marginLeft: isOpen ? `-${scrollBarWidth / 2 + 4}px` : "-4px" }}>
-            <IconButton
+          <div style={{ marginLeft: isOpen ? `-${scrollBarWidth / 2 + 3}px` : "-3px" }}>
+            <Button
+              size="icon"
+              variant="ghost"
+              aria-label="Open sidebar"
               onClick={handleOpenSidebar}
-              ariaLabel="Open sidebar"
-              className={classNames("w-9 h-9 hover:bg-muted z-[50]")}
+              className="w-9 h-9"
             >
               <MdMenu className="w-full h-full" />
-            </IconButton>
+            </Button>
           </div>
         </div>
       </div>
