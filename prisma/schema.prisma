@@ -17,7 +17,8 @@ model Product {
   id                String          @id @default(cuid())
   title             String
   description       String
-  color             String?
+  category          String
+  
   price             Int
   oldPrice          Int?
   discount          Int?

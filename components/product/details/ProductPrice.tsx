@@ -6,8 +6,6 @@ interface ProductPriceProps {
 }
 
 const ProductPrice = ({ product }: ProductPriceProps) => {
-  console.log(product);
-
   return (
     <div className="space-y-2">
       <span className="text-4xl font-medium text-gray-700">${product?.price}</span>

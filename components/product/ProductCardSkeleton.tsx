@@ -5,7 +5,7 @@ const ProductCardSkeleton = () => {
     <div className="relative w-full rounded-xl shadow-lg bg-muted cursor-pointer overflow-hidden">
       <Skeleton className="relative w-full aspect-square bg-background" />
 
-      <div className="p-4 border-t-2 border-muted-foreground">
+      <div className="p-4">
         <Skeleton className="w-[70%] h-6 rounded-sm" />
         <Skeleton className="w-full h-6 mt-2 rounded-sm" />
         <Skeleton className="w-[100px] h-7 mt-4 rounded-sm" />

@@ -7,6 +7,7 @@ const ActionButtons = () => {
     <div className="flex flex-col sm:flex-row gap-4">
       <Button
         size="lg"
+        variant="primary"
         className={classNames(
           "w-full hover-lift",
           "font-semibold text-lg text-gray-700 uppercase tracking-wide"

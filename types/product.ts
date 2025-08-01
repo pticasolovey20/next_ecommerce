@@ -12,7 +12,7 @@ export interface ProductData {
   id: string;
   title: string;
   description: string;
-  color?: string;
+  category: string;
 
   price: number;
   oldPrice?: number;
