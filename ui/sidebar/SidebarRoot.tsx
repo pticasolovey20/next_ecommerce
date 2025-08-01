@@ -6,11 +6,11 @@ import { useIsMounted } from "@/hooks/useIsMounted";
 import { calculateScrollBarWidth } from "@/utils/calculateScrollBarWidth";
 import { classNames } from "@/utils/classNames";
 
-interface SidebarProps {
+interface SidebarRootProps {
   children: ReactNode;
 }
 
-const Sidebar = ({ children }: SidebarProps) => {
+const SidebarRoot = ({ children }: SidebarRootProps) => {
   const { isOpen } = useSidebarContext();
   const isMounted = useIsMounted();
 
@@ -52,4 +52,4 @@ const Sidebar = ({ children }: SidebarProps) => {
   );
 };
 
-export default Sidebar;
+export default SidebarRoot;

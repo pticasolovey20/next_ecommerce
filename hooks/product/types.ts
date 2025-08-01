@@ -1,3 +1,4 @@
+import { BreadcrumbItemData } from "@/types/breadcrumb";
 import { ProductData } from "@/types/product";
 
 export interface UseProductsReturn {
@@ -15,4 +16,8 @@ export interface UseProductByIdReturn {
   isLoading: boolean;
   isError: boolean;
   product: ProductData | undefined;
+}
+
+export interface UseProductBreadcrumbsReturn {
+  list: BreadcrumbItemData[] | [];
 }

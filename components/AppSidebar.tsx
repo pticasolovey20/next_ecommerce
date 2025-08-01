@@ -2,7 +2,7 @@
 
 import { useSidebarContext } from "@/ui/sidebar/context";
 
-import { Sidebar } from "@/ui/sidebar";
+import { SidebarRoot } from "@/ui/sidebar";
 import Button from "@/ui/Button";
 import { MdClose } from "react-icons/md";
 
@@ -10,7 +10,7 @@ const AppSidebar = () => {
   const { handleCloseSidebar } = useSidebarContext();
 
   return (
-    <Sidebar>
+    <SidebarRoot>
       <Button
         size="icon"
         variant="ghost"
@@ -20,7 +20,7 @@ const AppSidebar = () => {
       >
         <MdClose className="w-full h-full" />
       </Button>
-    </Sidebar>
+    </SidebarRoot>
   );
 };
 
