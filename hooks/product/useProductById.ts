@@ -4,7 +4,7 @@ import { productService } from "@/services/ProductService";
 
 export const useProductById = (id?: string): UseProductByIdReturn => {
   const { isLoading, isError, data } = useQuery({
-    queryKey: ["product"],
+    queryKey: ["product", id],
     queryFn: () => productService.getProductsById(id!),
     select: (data) => data?.product,
     enabled: !!id,
