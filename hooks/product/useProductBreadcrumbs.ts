@@ -15,25 +15,35 @@ export const useProductBreadcrumbs = (): UseProductBreadcrumbsReturn => {
 
   const { product, isLoading } = useProductById(productId);
 
-  const updatedBreadcrumbs = baseBreadcrumbs.map((item, index, array) => {
-    if (item.label === "products") {
-      return {
-        ...item,
-        label: "Products",
-      };
-    }
+  const updatedBreadcrumbs = baseBreadcrumbs
+    .map((item, index, array) => {
+      if (item.label === "products") {
+        return {
+          ...item,
+          label: "Products",
+        };
+      }
 
-    const isLast = index === array.length - 1;
+      const isLast = index === array.length - 1;
 
-    if (isLast && isProductPage && product && !isLoading) {
-      return {
-        ...item,
-        label: product.title,
-      };
-    }
+      if (isLast && isProductPage && product && !isLoading) {
+        return {
+          ...item,
+          label: product.title,
+        };
+      }
 
-    return item;
-  });
+      return item;
+    })
+    .filter((_item, index, array) => {
+      const isLast = index === array.length - 1;
+
+      if (isLast && isProductPage && isLoading) {
+        return false;
+      }
+
+      return true;
+    });
 
   return {
     list: updatedBreadcrumbs,

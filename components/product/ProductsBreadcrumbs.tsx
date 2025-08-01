@@ -16,13 +16,13 @@ const ProductsBreadcrumbs = () => {
 
   return (
     <BreadcrumbsRoot separator={<MdChevronRight />}>
-      <BreadcrumbsList>
+      <BreadcrumbsList className="truncate">
         {list?.map(({ label, href, isActive }, index) => {
           const isLast = index === list.length - 1;
 
           return (
             <Fragment key={index}>
-              <BreadcrumbsItem href={href} isActive={isActive}>
+              <BreadcrumbsItem href={href} isActive={isActive} className={isLast ? "truncate" : ""}>
                 {label}
               </BreadcrumbsItem>
 
