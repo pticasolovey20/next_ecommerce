@@ -1,16 +1,23 @@
 "use client";
 
+import { PRODUCTS_PER_PAGE } from "@/constants/product";
 import { useProducts } from "@/hooks/product/useProducts";
-
 import { ProductData } from "@/types/product";
 
 import ProductListSkeleton from "@/components/product/ProductListSkeleton";
 import ProductCard from "@/components/product/ProductCard";
-import { PRODUCTS_PER_PAGE } from "@/constants/product";
+import Button from "@/ui/Button";
 
 const ProductList = () => {
-  const { isLoading, products, hasNextPage, fetchNextPage, isFetchingNextPage } =
-    useProducts(PRODUCTS_PER_PAGE);
+  const {
+    isLoading,
+    // isError,
+    products,
+    hasNextPage,
+    fetchNextPage,
+    isFetchingNextPage,
+    // error
+  } = useProducts(PRODUCTS_PER_PAGE);
 
   if (isLoading) return <ProductListSkeleton />;
 
@@ -25,10 +32,15 @@ const ProductList = () => {
       {isFetchingNextPage && <ProductListSkeleton />}
 
       {hasNextPage && (
-        <div className="flex justify-center mt-4">
-          <button onClick={() => fetchNextPage()} className="font-medium text-lg cursor-pointer">
+        <div className="flex justify-center mt-8">
+          <Button
+            size="lg"
+            variant="secondary"
+            onClick={() => fetchNextPage()}
+            className="hover-lift"
+          >
             SHOW MORE
-          </button>
+          </Button>
         </div>
       )}
     </div>

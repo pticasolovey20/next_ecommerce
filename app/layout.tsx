@@ -34,7 +34,11 @@ const RootLayout = ({ children }: RootLayoutProps) => {
     <html lang="en">
       <body
         suppressHydrationWarning
-        className={classNames(montserrat.variable, "min-h-[100dvh] h-full flex flex-col")}
+        className={classNames(
+          montserrat.variable,
+          "min-h-[100dvh] h-full flex flex-col",
+          "bg-gradient-to-br from-gray-50 to-gray-100"
+        )}
       >
         <QueryProvider>
           <ReactQueryDevtools initialIsOpen={false} />

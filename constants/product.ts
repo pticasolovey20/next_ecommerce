@@ -4,10 +4,20 @@ export const PRODUCTS = [
   {
     id: 1,
     title: "Professional Camera",
-    description:
-      "High-quality digital camera for professional photography with advanced features and excellent image quality",
+    description: '24MP | 4K Video | 3.2" Touchscreen',
     color: "Black",
-    price: 1299,
+    price: 1199,
+    oldPrice: 1299,
+    discount: 7.7,
+
+    features: [
+      { label: "Sensor", value: "24MP Full Frame" },
+      { label: "Video", value: "4K 60fps" },
+      { label: "Screen", value: '3.2" Touchscreen' },
+      { label: "Connectivity", value: "Wi-Fi, Bluetooth" },
+      { label: "Battery", value: "1200mAh" },
+    ],
+
     assets: [{ src: "/assets/camera.webp", alt: "Professional digital camera" }],
     rating: 4.8,
   },
@@ -15,9 +25,19 @@ export const PRODUCTS = [
   {
     id: 2,
     title: "Black Earphones",
-    description: "Premium wireless earphones with noise cancellation and superior sound quality",
+    description: "ANC | 24h Battery | Bluetooth 5.2",
     color: "Black",
     price: 199,
+    oldPrice: 199,
+
+    features: [
+      { label: "Noise Cancellation", value: "Active" },
+      { label: "Battery", value: "24 hours" },
+      { label: "Bluetooth", value: "5.2" },
+      { label: "Water Resistance", value: "IPX4" },
+      { label: "Microphones", value: "Dual Beamforming" },
+    ],
+
     assets: [{ src: "/assets/earphones_black.webp", alt: "Black wireless earphones" }],
     rating: 4.5,
   },
@@ -25,10 +45,20 @@ export const PRODUCTS = [
   {
     id: 3,
     title: "Gaming Laptop",
-    description:
-      "High-performance gaming laptop with powerful graphics card and fast processor for ultimate gaming experience",
+    description: "Intel i9 | 32GB RAM | RTX 4080",
     color: "Black",
-    price: 1899,
+    price: 1799,
+    oldPrice: 1899,
+    discount: 5.3,
+
+    features: [
+      { label: "CPU", value: "Intel Core i9" },
+      { label: "RAM", value: "32 GB" },
+      { label: "GPU", value: "NVIDIA RTX 4080" },
+      { label: "Storage", value: "1TB SSD" },
+      { label: "Display", value: '17" QHD 165Hz' },
+    ],
+
     assets: [{ src: "/assets/gaming_laptop.webp", alt: "Gaming laptop" }],
     rating: 4.7,
   },
@@ -36,10 +66,19 @@ export const PRODUCTS = [
   {
     id: 4,
     title: "Blue Headphones",
-    description:
-      "Comfortable over-ear headphones with premium sound quality and stylish blue design",
+    description: "Hi-Res Audio | 40h Battery | Bluetooth 5.0",
     color: "Blue",
-    price: 149,
+    price: 139,
+    oldPrice: 149,
+    discount: 6.7,
+    features: [
+      { label: "Audio", value: "Hi-Res certified" },
+      { label: "Battery", value: "40 hours" },
+      { label: "Bluetooth", value: "5.0" },
+      { label: "Weight", value: "210 g" },
+      { label: "Foldable", value: "Yes" },
+    ],
+
     assets: [{ src: "/assets/headphones_blue.webp", alt: "Blue over-ear headphones" }],
     rating: 4.3,
   },
@@ -47,10 +86,19 @@ export const PRODUCTS = [
   {
     id: 5,
     title: "PlayStation Console",
-    description:
-      "Latest generation gaming console with cutting-edge graphics and exclusive games library",
+    description: "825GB SSD | Ray Tracing | DualSense",
     color: "White",
     price: 499,
+    oldPrice: 499,
+
+    features: [
+      { label: "Storage", value: "825GB SSD" },
+      { label: "Graphics", value: "Ray Tracing" },
+      { label: "Controller", value: "DualSense Wireless" },
+      { label: "Resolution", value: "Up to 8K" },
+      { label: "Games", value: "Exclusive Titles" },
+    ],
+
     assets: [{ src: "/assets/playstation.webp", alt: "PlayStation gaming console" }],
     rating: 4.9,
   },
@@ -58,9 +106,20 @@ export const PRODUCTS = [
   {
     id: 6,
     title: "White Earphones",
-    description: "Sleek white wireless earphones with crystal clear audio and long battery life",
+    description: "20h Battery | Crystal Clear Mic | IPX5",
     color: "White",
-    price: 179,
+    price: 169,
+    oldPrice: 179,
+    discount: 5.6,
+
+    features: [
+      { label: "Battery", value: "20 hours" },
+      { label: "Waterproof", value: "IPX5" },
+      { label: "Microphone", value: "Clear Voice Capture" },
+      { label: "Charging", value: "USB-C + Wireless" },
+      { label: "Case", value: "Magnetic Lid" },
+    ],
+
     assets: [{ src: "/assets/earphones_white.webp", alt: "White wireless earphones" }],
     rating: 4.4,
   },
@@ -68,9 +127,19 @@ export const PRODUCTS = [
   {
     id: 7,
     title: "HD Projector",
-    description: "High-definition projector perfect for home theater, presentations, and gaming",
+    description: '1080p | 300" Display | HDMI + USB-C',
     color: "Black",
     price: 699,
+    oldPrice: 699,
+
+    features: [
+      { label: "Resolution", value: "1080p Full HD" },
+      { label: "Max Display", value: "300 inches" },
+      { label: "Brightness", value: "3800 lumens" },
+      { label: "Ports", value: "HDMI, USB-C, AV" },
+      { label: "Speaker", value: "Built-in stereo" },
+    ],
+
     assets: [{ src: "/assets/projector.webp", alt: "HD projector" }],
     rating: 4.6,
   },
@@ -78,115 +147,21 @@ export const PRODUCTS = [
   {
     id: 8,
     title: "Black Headphones",
-    description: "Professional black headphones with studio-quality sound and comfortable design",
+    description: "Studio Sound | 50h Battery | ANC",
     color: "Black",
-    price: 249,
+    price: 229,
+    oldPrice: 249,
+    discount: 8,
+
+    features: [
+      { label: "Audio", value: "Studio-quality" },
+      { label: "Noise Canceling", value: "Active" },
+      { label: "Battery", value: "50 hours" },
+      { label: "Bluetooth", value: "5.3" },
+      { label: "Comfort", value: "Memory foam cushions" },
+    ],
+
     assets: [{ src: "/assets/headphones_black.webp", alt: "Black over-ear headphones" }],
     rating: 4.7,
-  },
-
-  {
-    id: 9,
-    title: "Smart Watch",
-    description:
-      "Advanced smartwatch with fitness tracking, notifications and long-lasting battery",
-    color: "Black",
-    price: 299,
-    assets: [{ src: "/assets/smart_watch.webp", alt: "Smart watch" }],
-    rating: 4.2,
-  },
-  {
-    id: 10,
-    title: "Professional Camera",
-    description:
-      "High-quality digital camera for professional photography with advanced features and excellent image quality",
-    color: "Black",
-    price: 1299,
-    assets: [{ src: "/assets/camera.webp", alt: "Professional digital camera" }],
-    rating: 4.8,
-  },
-
-  {
-    id: 11,
-    title: "Black Earphones",
-    description: "Premium wireless earphones with noise cancellation and superior sound quality",
-    color: "Black",
-    price: 199,
-    assets: [{ src: "/assets/earphones_black.webp", alt: "Black wireless earphones" }],
-    rating: 4.5,
-  },
-
-  {
-    id: 12,
-    title: "Gaming Laptop",
-    description:
-      "High-performance gaming laptop with powerful graphics card and fast processor for ultimate gaming experience",
-    color: "Black",
-    price: 1899,
-    assets: [{ src: "/assets/gaming_laptop.webp", alt: "Gaming laptop" }],
-    rating: 4.7,
-  },
-
-  {
-    id: 13,
-    title: "Blue Headphones",
-    description:
-      "Comfortable over-ear headphones with premium sound quality and stylish blue design",
-    color: "Blue",
-    price: 149,
-    assets: [{ src: "/assets/headphones_blue.webp", alt: "Blue over-ear headphones" }],
-    rating: 4.3,
-  },
-
-  {
-    id: 14,
-    title: "PlayStation Console",
-    description:
-      "Latest generation gaming console with cutting-edge graphics and exclusive games library",
-    color: "White",
-    price: 499,
-    assets: [{ src: "/assets/playstation.webp", alt: "PlayStation gaming console" }],
-    rating: 4.9,
-  },
-
-  {
-    id: 15,
-    title: "White Earphones",
-    description: "Sleek white wireless earphones with crystal clear audio and long battery life",
-    color: "White",
-    price: 179,
-    assets: [{ src: "/assets/earphones_white.webp", alt: "White wireless earphones" }],
-    rating: 4.4,
-  },
-
-  {
-    id: 16,
-    title: "HD Projector",
-    description: "High-definition projector perfect for home theater, presentations, and gaming",
-    color: "Black",
-    price: 699,
-    assets: [{ src: "/assets/projector.webp", alt: "HD projector" }],
-    rating: 4.6,
-  },
-
-  {
-    id: 17,
-    title: "Black Headphones",
-    description: "Professional black headphones with studio-quality sound and comfortable design",
-    color: "Black",
-    price: 249,
-    assets: [{ src: "/assets/headphones_black.webp", alt: "Black over-ear headphones" }],
-    rating: 4.7,
-  },
-
-  {
-    id: 18,
-    title: "Smart Watch",
-    description:
-      "Advanced smartwatch with fitness tracking, notifications and long-lasting battery",
-    color: "Black",
-    price: 299,
-    assets: [{ src: "/assets/smart_watch.webp", alt: "Smart watch" }],
-    rating: 4.2,
   },
 ];

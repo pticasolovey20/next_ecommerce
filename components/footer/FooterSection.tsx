@@ -16,7 +16,7 @@ const FooterSection = ({ section }: FooterSectionProps) => {
 
   return (
     <div className={classNames("flex flex-col", alignmentClassName)}>
-      <h3 className="text-xl font-bold mb-2">{section.title}</h3>
+      <h3 className="text-xl font-semibold mb-2">{section.title}</h3>
       <FooterLinks alignmentClassName={alignmentClassName} links={section.links} />
     </div>
   );

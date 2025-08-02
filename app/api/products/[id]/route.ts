@@ -15,7 +15,6 @@ export async function GET(_request: NextRequest, { params }: Params) {
 
     const product = await prismaClient.product.findUnique({
       where: { id },
-      include: { assets: true },
     });
 
     if (!product) {

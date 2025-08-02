@@ -8,10 +8,10 @@ interface FooterLinksProps {
 
 const FooterLinks = ({ alignmentClassName, links }: FooterLinksProps) => {
   return (
-    <ul className={classNames("flex flex-col", alignmentClassName)}>
+    <ul className={classNames("flex flex-col gap-2", alignmentClassName)}>
       {links.map(({ id, href, label }) => (
         <li key={id}>
-          <a href={href} target="_blank" className="font-medium text-muted-foreground">
+          <a href={href} target="_blank" className="text-muted-foreground">
             {label}
           </a>
         </li>
