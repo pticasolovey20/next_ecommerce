@@ -11,7 +11,7 @@ interface SidebarRootProps {
 }
 
 const SidebarRoot = ({ children }: SidebarRootProps) => {
-  const { isOpen } = useSidebarContext();
+  const { isOpen, handleCloseSidebar } = useSidebarContext();
   const isMounted = useIsMounted();
 
   useEffect(() => {
@@ -35,7 +35,7 @@ const SidebarRoot = ({ children }: SidebarRootProps) => {
 
   return (
     <Fragment>
-      {isOpen && <div className="fixed inset-0 bg-black/50 z-[40]" />}
+      {isOpen && <div className="fixed inset-0 bg-black/50 z-[40]" onClick={handleCloseSidebar} />}
 
       <aside
         className={classNames(

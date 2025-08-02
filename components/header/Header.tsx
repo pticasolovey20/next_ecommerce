@@ -1,9 +1,6 @@
 "use client";
 
 import { useSidebarContext } from "@/ui/sidebar/context";
-import { useIsMounted } from "@/hooks/useIsMounted";
-import { useEffect, useState } from "react";
-import { calculateScrollBarWidth } from "@/utils/calculateScrollBarWidth";
 import { classNames } from "@/utils/classNames";
 
 import Button from "@/ui/Button";
@@ -11,15 +8,6 @@ import { MdMenu } from "react-icons/md";
 
 const Header = () => {
   const { isOpen, handleOpenSidebar } = useSidebarContext();
-  const [scrollBarWidth, setScrollBarWidth] = useState(0);
-  const isMounted = useIsMounted();
-
-  useEffect(() => {
-    if (!isMounted) return;
-
-    const scrollBarWidth = calculateScrollBarWidth();
-    setScrollBarWidth(scrollBarWidth);
-  }, [isMounted]);
 
   return (
     <header className="w-full h-16">
@@ -37,7 +25,7 @@ const Header = () => {
             "px-4 md:px-8 xl:px-12 mx-auto"
           )}
         >
-          <div style={{ marginLeft: isOpen ? `-${scrollBarWidth / 2 + 3}px` : "-3px" }}>
+          {!isOpen && (
             <Button
               size="icon"
               variant="ghost"
@@ -47,7 +35,7 @@ const Header = () => {
             >
               <MdMenu className="w-full h-full" />
             </Button>
-          </div>
+          )}
         </div>
       </div>
     </header>
