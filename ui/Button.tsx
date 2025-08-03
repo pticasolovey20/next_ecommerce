@@ -14,7 +14,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ variant = "default", size = "md", className = "", children, ...props }, ref) => {
     const baseStyles = classNames(
-      "inline-flex items-center justify-center",
+      "inline-flex shrink-0 items-center justify-center",
       "font-medium transition-all cursor-pointer",
       "focus:outline-none disabled:opacity-50 disabled:pointer-events-none"
     );
@@ -36,13 +36,15 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       sm: "text-sm px-3 py-2 rounded-lg",
       md: "text-sm px-4 py-2 rounded-xl",
       lg: "text-lg px-8 py-3 rounded-xl",
-      icon: "p-2 rounded-lg shadow-sm",
+      icon: "p-1.5 rounded-lg shadow-sm",
     };
 
-    const classes = `${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`;
-
     return (
-      <button ref={ref} className={classes} {...props}>
+      <button
+        ref={ref}
+        className={classNames(baseStyles, variants[variant], sizes[size], className)}
+        {...props}
+      >
         {children}
       </button>
     );

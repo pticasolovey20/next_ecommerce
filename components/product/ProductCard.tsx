@@ -6,7 +6,7 @@ import Link from "next/link";
 import ProductImage from "@/components/product/ProductImage";
 import Button from "@/ui/Button";
 import { FaHeart } from "react-icons/fa";
-import { RiShoppingCartLine } from "react-icons/ri";
+import { HiShoppingCart } from "react-icons/hi";
 
 interface ProductCardProps {
   product: ProductData;
@@ -47,7 +47,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
         size="icon"
         variant="ghost"
         aria-label="Add to favorite"
-        className="absolute top-4 right-4 hover:text-red-500"
+        className="absolute top-4 right-4 w-8 h-8 hover:text-red-500"
       >
         <FaHeart className="w-full h-full" />
       </Button>
@@ -56,9 +56,9 @@ const ProductCard = ({ product }: ProductCardProps) => {
         size="icon"
         variant="ghost"
         aria-label="Add to cart"
-        className="absolute bottom-4 right-4 hover:text-green-500"
+        className="absolute bottom-4 right-4 w-8 h-8 p-1 hover:text-green-500"
       >
-        <RiShoppingCartLine className="w-full h-full" />
+        <HiShoppingCart className="w-full h-full" />
       </Button>
     </CardContainer>
   );

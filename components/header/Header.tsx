@@ -4,7 +4,10 @@ import { useSidebarContext } from "@/ui/sidebar/context";
 import { classNames } from "@/utils/classNames";
 
 import Button from "@/ui/Button";
-import { MdMenu } from "react-icons/md";
+import { MdFavorite, MdMenu } from "react-icons/md";
+import { CgProfile } from "react-icons/cg";
+import { HiShoppingCart } from "react-icons/hi";
+import Input from "@/ui/Input";
 
 const Header = () => {
   const { isOpen, handleOpenSidebar } = useSidebarContext();
@@ -18,24 +21,49 @@ const Header = () => {
           "bg-white shadow-sm z-[30]"
         )}
       >
-        <div
-          className={classNames(
-            "max-w-screen-2xl w-full h-16",
-            "flex items-center",
-            "px-4 md:px-8 xl:px-12 mx-auto"
-          )}
-        >
-          {!isOpen && (
+        <div className="max-w-screen-2xl w-full h-16 px-4 md:px-8 xl:px-12 mx-auto">
+          <div id="header-layout" className="h-full flex items-center gap-2 sm:gap-4">
+            {!isOpen && (
+              <Button
+                size="icon"
+                variant="ghost"
+                aria-label="Open sidebar"
+                onClick={handleOpenSidebar}
+                className="w-10 h-10"
+              >
+                <MdMenu className="w-full h-full" />
+              </Button>
+            )}
+
+            <Input placeholder="Search..." className="h-10 drop-shadow-sm" />
+
             <Button
               size="icon"
               variant="ghost"
-              aria-label="Open sidebar"
-              onClick={handleOpenSidebar}
-              className="w-9 h-9"
+              aria-label="Open profile"
+              className="w-10 h-10 hover-lift hidden sm:inline-flex"
             >
-              <MdMenu className="w-full h-full" />
+              <CgProfile className="w-full h-full" />
             </Button>
-          )}
+
+            <Button
+              size="icon"
+              variant="ghost"
+              aria-label="Open cart"
+              className="w-10 h-10 hover-lift hidden sm:inline-flex"
+            >
+              <MdFavorite className="w-full h-full" />
+            </Button>
+
+            <Button
+              size="icon"
+              variant="ghost"
+              aria-label="Open cart"
+              className="w-10 h-10 hover-lift hidden sm:inline-flex"
+            >
+              <HiShoppingCart className="w-full h-full" />
+            </Button>
+          </div>
         </div>
       </div>
     </header>
