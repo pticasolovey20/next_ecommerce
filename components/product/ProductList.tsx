@@ -18,17 +18,15 @@ const ProductList = () => {
     isFetchingNextPage,
   } = useProducts(PRODUCTS_PER_PAGE);
 
-  if (isLoading) return <ProductListSkeleton />;
-
   return (
     <div>
       <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 mt-8">
         {products?.map((product: ProductData) => (
           <ProductCard key={product.id} product={product} />
         ))}
-      </div>
 
-      {isFetchingNextPage && <ProductListSkeleton />}
+        {(isFetchingNextPage || isLoading) && <ProductListSkeleton />}
+      </div>
 
       {hasNextPage && (
         <div className="flex justify-center mt-8">

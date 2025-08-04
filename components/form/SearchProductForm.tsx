@@ -26,8 +26,7 @@ const SearchProductForm = ({ onOpen }: SearchProductFormProps) => {
             "absolute top-1/2 -translate-y-1/2 left-2",
             "text-muted-foreground hover:text-foreground",
             "disabled:opacity-50",
-            "transition-all duration-300 ease-in-out",
-            "cursor-pointer"
+            "transition-all duration-300 ease-in-out"
           )}
         >
           <BiSearch className="w-5 h-5" />

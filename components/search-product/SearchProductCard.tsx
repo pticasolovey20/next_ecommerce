@@ -2,7 +2,7 @@ import { ProductData } from "@/types/product";
 import { classNames } from "@/utils/classNames";
 
 import Link from "next/link";
-import Image from "next/image";
+import ProductImage from "@/components/product/ProductImage";
 import { MdArrowOutward } from "react-icons/md";
 
 interface SerachProductCardProps {
@@ -18,15 +18,14 @@ const SearchProductCard = ({ product, onClick }: SerachProductCardProps) => {
     >
       <Link href={`/products/${product.id}`}>
         <div className="flex items-center gap-4">
-          <div className="relative w-16 h-16 border-2 border-muted-foreground rounded-md overflow-hidden">
-            <Image
-              fill
-              quality={75}
-              src={product.assets[0].src}
-              alt={product.assets[0].alt}
-              className="w-full h-full object-cover"
-            />
-          </div>
+          <ProductImage
+            fill
+            loading="lazy"
+            quality={75}
+            src={product.assets[0].src}
+            alt={product.assets[0].alt}
+            containerClassName="w-16 h-16 rounded-md"
+          />
 
           <div className="flex flex-col">
             <span className="text-xl font-medium">{product.title}</span>
