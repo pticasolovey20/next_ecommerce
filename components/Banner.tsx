@@ -6,7 +6,7 @@ const Banner = () => {
   return (
     <div
       className={classNames(
-        "relative p-8 mb-8 overflow-hidden",
+        "relative p-8 overflow-hidden",
         "bg-gradient-to-r from-gray-800 to-gray-900",
         "border border-gray-700/50 rounded-3xl shadow-lg"
       )}

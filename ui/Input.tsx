@@ -11,8 +11,8 @@ const Input = ({ className, ...rest }: InputProps) => {
       {...rest}
       className={classNames(
         "min-w-0 w-full px-4 py-3",
-        "border border-gray-300 rounded-lg bg-white/80",
-        "focus:outline-none focus:ring-2 focus:ring-gray-400",
+        "border-2 border-muted-foreground rounded-lg bg-white",
+        "focus:outline-none focus:ring-0 focus:ring-foreground",
         className
       )}
     />
