@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { classNames } from "@/utils/classNames";
 
 import Image, { ImageProps } from "next/image";
+import Skeleton from "@/ui/Skeleton";
 
 interface ProductImageProps extends ImageProps {
   containerClassName?: string;
@@ -13,6 +14,7 @@ const fallbackImageSource = "/assets/fallback_image.webp";
 
 const ProductImage = ({ src, alt, className, containerClassName, ...rest }: ProductImageProps) => {
   const [imageSource, setImageSource] = useState(src);
+  const [isLoaded, setIsLoaded] = useState<boolean>(false);
 
   useEffect(() => {
     setImageSource(src);
@@ -28,9 +30,16 @@ const ProductImage = ({ src, alt, className, containerClassName, ...rest }: Prod
         {...rest}
         src={imageSource}
         alt={alt}
+        onLoad={() => setIsLoaded(true)}
         onError={handleError}
-        className={classNames("w-full h-full object-cover", className)}
+        className={classNames(
+          isLoaded ? "visible" : "invisible",
+          "w-full h-full object-cover",
+          className
+        )}
       />
+
+      <Skeleton className={classNames(isLoaded ? "invisible" : "visible", "absolute inset-0")} />
     </div>
   );
 };

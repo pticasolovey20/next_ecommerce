@@ -1,3 +1,6 @@
+import * as zod from "zod";
+import { SearchProductSchema } from "@/schemas/productSchema";
+
 export interface ProductAssetData {
   src: string;
   alt: string;
@@ -22,3 +25,5 @@ export interface ProductData {
   assets: ProductAssetData[];
   features: ProductFeatureData[];
 }
+
+export type SearchProductsFormFields = zod.infer<typeof SearchProductSchema>;

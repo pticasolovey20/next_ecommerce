@@ -2,6 +2,7 @@
 
 @use "@/app/styles/fonts.scss";
 @use "@/app/styles/colors.scss";
+@use "@/app/styles/animations.scss";
 
 @layer base {
   body {
@@ -21,5 +22,9 @@
 
   .hover-lift {
     @apply transition duration-300 ease-in-out transform lg:hover:-translate-y-1 lg:hover:scale-[1.02] lg:hover:shadow-2xl;
+  }
+
+  .animate-pulse {
+    animation: var(--animate-pulse);
   }
 }

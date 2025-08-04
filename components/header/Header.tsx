@@ -7,7 +7,7 @@ import Button from "@/ui/Button";
 import { MdFavorite, MdMenu } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
 import { HiShoppingCart } from "react-icons/hi";
-import Input from "@/ui/Input";
+import SearchProductWrapper from "@/components/search-product/SearchProductWrapper";
 
 const Header = () => {
   const { isOpen, handleOpenSidebar } = useSidebarContext();
@@ -22,26 +22,26 @@ const Header = () => {
         )}
       >
         <div className="max-w-screen-2xl w-full h-16 px-4 md:px-8 xl:px-12 mx-auto">
-          <div id="header-layout" className="h-full flex items-center gap-2 sm:gap-4">
+          <div id="header-layout" className="relative h-full flex items-center gap-4">
             {!isOpen && (
               <Button
                 size="icon"
                 variant="ghost"
                 aria-label="Open sidebar"
                 onClick={handleOpenSidebar}
-                className="w-10 h-10"
+                className="w-10 h-10 shrink-0"
               >
                 <MdMenu className="w-full h-full" />
               </Button>
             )}
 
-            <Input placeholder="Search..." className="h-10 drop-shadow-sm" />
+            <SearchProductWrapper />
 
             <Button
               size="icon"
               variant="ghost"
               aria-label="Open profile"
-              className="w-10 h-10 hover-lift hidden sm:inline-flex"
+              className="w-10 h-10 hover-lift hidden sm:inline-flex shrink-0"
             >
               <CgProfile className="w-full h-full" />
             </Button>
@@ -50,7 +50,7 @@ const Header = () => {
               size="icon"
               variant="ghost"
               aria-label="Open cart"
-              className="w-10 h-10 hover-lift hidden sm:inline-flex"
+              className="w-10 h-10 hover-lift hidden sm:inline-flex shrink-0"
             >
               <MdFavorite className="w-full h-full" />
             </Button>
@@ -59,7 +59,7 @@ const Header = () => {
               size="icon"
               variant="ghost"
               aria-label="Open cart"
-              className="w-10 h-10 hover-lift hidden sm:inline-flex"
+              className="w-10 h-10 hover-lift hidden sm:inline-flex shrink-0"
             >
               <HiShoppingCart className="w-full h-full" />
             </Button>
