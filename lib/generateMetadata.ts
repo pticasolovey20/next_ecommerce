@@ -17,7 +17,7 @@ export interface MetadataConfig {
 
 const getEnviromentVariables = () => ({
   NODE_ENV: process.env.NODE_ENV || "development",
-  NEXT_PUBLIC_BASE_URL: process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000",
+  BASE_URL: process.env.BASE_URL || "http://localhost:3000",
   NEXT_PUBLIC_SITE_NAME: process.env.NEXT_PUBLIC_SITE_NAME || "TechStore",
   NEXT_PUBLIC_SITE_DESCRIPTION:
     process.env.NEXT_PUBLIC_SITE_DESCRIPTION ||
@@ -41,7 +41,7 @@ export const generateMetadata = (pageMetadata?: Partial<MetadataConfig>): Metada
 
     twitterCard: isProduction ? ("summary_large_image" as const) : ("summary" as const),
 
-    canonical: enviromentVariables.NEXT_PUBLIC_BASE_URL,
+    canonical: enviromentVariables.BASE_URL,
     robots: isProduction ? "index, follow" : "noindex, nofollow",
     keywords: [
       "electronics store",
