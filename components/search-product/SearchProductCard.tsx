@@ -13,10 +13,10 @@ interface SerachProductCardProps {
 const SearchProductCard = ({ product, onClick }: SerachProductCardProps) => {
   return (
     <div
-      className="relative group p-1 rounded-lg overflow-hidden hover:bg-gray-200/50"
+      className="relative flex group p-1 rounded-lg overflow-hidden hover:bg-gray-200/50"
       onClick={onClick}
     >
-      <Link href={`/products/${product.id}`}>
+      <Link href={`/products/${product.id}`} className="grow pr-4 overflow-hidden">
         <div className="flex items-center gap-4">
           <ProductImage
             fill
@@ -24,11 +24,11 @@ const SearchProductCard = ({ product, onClick }: SerachProductCardProps) => {
             quality={75}
             src={product.assets[0].src}
             alt={product.assets[0].alt}
-            containerClassName="w-16 h-16 rounded-md"
+            containerClassName="shrink-0 w-16 h-16 rounded-md"
           />
 
-          <div className="flex flex-col">
-            <span className="text-xl font-medium">{product.title}</span>
+          <div className="w-full flex flex-col overflow-hidden">
+            <span className="text-xl truncate font-medium">{product.title}</span>
             <span className="text-lg">${product.price}</span>
           </div>
         </div>
@@ -36,7 +36,7 @@ const SearchProductCard = ({ product, onClick }: SerachProductCardProps) => {
 
       <button
         className={classNames(
-          "absolute top-2 right-2 w-8 h-8",
+          "w-8 h-8",
           "group-hover:scale-110 cursor-pointer",
           "transition-transform duration-100 ease-in-out"
         )}

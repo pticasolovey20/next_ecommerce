@@ -1,7 +1,7 @@
 "use client";
 
-import ProductGallery from "@/components/product/details/ProductGallery";
-import ProductInfo from "@/components/product/details/ProductInfo";
+import ProductGallery from "@/components/product-details/ProductGallery";
+import ProductInfo from "@/components/product-details/ProductInfo";
 
 interface ProductDetailsCardProps {
   productId: string;

@@ -1,4 +1,4 @@
-import ProductDetailsCard from "@/components/product/details/ProductDetailCard";
+import ProductDetailsCard from "@/components/product-details/ProductDetailCard";
 
 interface ProductDetailsPageProps {
   params: Promise<{ id: string }>;

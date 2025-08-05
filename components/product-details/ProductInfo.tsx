@@ -2,10 +2,10 @@ import { Fragment } from "react";
 import { useProductById } from "@/hooks/product/useProductById";
 
 import ProductSkeleton from "@/ui/Skeleton";
-import ProductRating from "@/components/product/details/ProductRating";
-import ProductPrice from "@/components/product/details/ProductPrice";
-import ProductSpecifications from "@/components/product/details/ProductSpecifications";
-import ActionButtons from "@/components/product/details/ActionButtons";
+import ProductRating from "@/components/product-details/ProductRating";
+import ProductPrice from "@/components/product-details/ProductPrice";
+import ProductSpecifications from "@/components/product-details/ProductSpecifications";
+import ActionButtons from "@/components/product-details/ActionButtons";
 
 interface ProductInfoProps {
   productId: string;
