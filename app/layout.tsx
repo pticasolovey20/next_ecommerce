@@ -1,4 +1,5 @@
 import { Montserrat } from "next/font/google";
+import { generateMetadata } from "@/lib/generateMetadata";
 import type { Metadata } from "next";
 
 import { ReactNode } from "react";
@@ -20,10 +21,7 @@ const montserrat = Montserrat({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "Ecommerce App - Online Shopping",
-  description: "Fast shipping and quality guaranteed",
-};
+export const metadata: Metadata = generateMetadata();
 
 interface RootLayoutProps {
   children: ReactNode;
