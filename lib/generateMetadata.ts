@@ -21,7 +21,7 @@ const getEnviromentVariables = () => ({
   NEXT_PUBLIC_SITE_NAME: process.env.NEXT_PUBLIC_SITE_NAME || "TechStore",
   NEXT_PUBLIC_SITE_DESCRIPTION:
     process.env.NEXT_PUBLIC_SITE_DESCRIPTION ||
-    "Premium electronics and gadgets with fast shipping. Latest smartphones, laptops, gaming gear and tech accessories at competitive prices",
+    "Premium electronics and gadgets with fast shipping",
   NEXT_PUBLIC_OG_IMAGE: process.env.NEXT_PUBLIC_OG_IMAGE || "/og_image.webp",
 });
 
