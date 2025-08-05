@@ -22,7 +22,7 @@ const getEnviromentVariables = () => ({
   NEXT_PUBLIC_SITE_DESCRIPTION:
     process.env.NEXT_PUBLIC_SITE_DESCRIPTION ||
     "Premium electronics and gadgets with fast shipping. Latest smartphones, laptops, gaming gear and tech accessories at competitive prices",
-  NEXT_PUBLIC_OG_IMAGE: process.env.NEXT_PUBLIC_OG_IMAGE || "/og-store-banner.webp",
+  NEXT_PUBLIC_OG_IMAGE: process.env.NEXT_PUBLIC_OG_IMAGE || "/assets/og_image.webp",
 });
 
 const getIsProduction = () => getEnviromentVariables().NODE_ENV === "production";
@@ -97,38 +97,6 @@ export const generateMetadata = (pageMetadata?: Partial<MetadataConfig>): Metada
 
     alternates: {
       canonical: config.canonical,
-    },
-
-    icons: {
-      icon: [
-        {
-          url: "/favicon-16x16.png",
-          sizes: "16x16",
-          type: "image/png",
-        },
-
-        {
-          url: "/favicon-32x32.png",
-          sizes: "32x32",
-          type: "image/png",
-        },
-      ],
-
-      apple: [
-        {
-          url: "/apple-touch-icon.png",
-          sizes: "180x180",
-          type: "image/png",
-        },
-      ],
-
-      other: [
-        {
-          rel: "mask-icon",
-          url: "/safari-pinned-tab.svg",
-          color: "#000000",
-        },
-      ],
     },
 
     other: {
