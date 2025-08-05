@@ -36,7 +36,7 @@ const SearchProductCard = ({ product, onClick }: SerachProductCardProps) => {
 
       <button
         className={classNames(
-          "w-8 h-8",
+          "shrink-0 w-8 h-8",
           "group-hover:scale-110 cursor-pointer",
           "transition-transform duration-100 ease-in-out"
         )}
