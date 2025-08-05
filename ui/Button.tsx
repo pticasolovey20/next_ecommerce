@@ -26,7 +26,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         "text-white bg-gradient-to-r from-gray-700 to-gray-800 hover:shadow-lg focus:ring-gray-500",
 
       secondary:
-        "border border-gray-300/50 text-gray-700 bg-white/60 hover:text-gray-800 hover:bg-white/80 focus:ring-gray-400",
+        "border border-gray-300/50 text-foreground bg-white/60 hover:text-gray-800 hover:bg-white/80 focus:ring-gray-400",
 
       ghost:
         "border border-gray-300/50 text-gray-600 bg-gray-100/80 hover:text-gray-800 hover:bg-gray-200/80 focus:ring-0",
@@ -35,7 +35,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     const sizes = {
       sm: "text-sm px-3 py-2 rounded-lg",
       md: "text-sm px-4 py-2 rounded-xl",
-      lg: "text-lg px-8 py-3 rounded-xl",
+      lg: "text-lg font-semibold tracking-wide px-8 py-3 rounded-xl",
       icon: "p-1.5 rounded-lg shadow-sm",
     };
 
