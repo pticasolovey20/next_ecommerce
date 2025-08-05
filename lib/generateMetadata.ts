@@ -22,7 +22,7 @@ const getEnviromentVariables = () => ({
   NEXT_PUBLIC_SITE_DESCRIPTION:
     process.env.NEXT_PUBLIC_SITE_DESCRIPTION ||
     "Premium electronics and gadgets with fast shipping. Latest smartphones, laptops, gaming gear and tech accessories at competitive prices",
-  NEXT_PUBLIC_OG_IMAGE: process.env.NEXT_PUBLIC_OG_IMAGE || "/og_image.webp",
+  NEXT_PUBLIC_OG_IMAGE: process.env.NEXT_PUBLIC_OG_IMAGE || "/assets/og_image.webp",
 });
 
 const getIsProduction = () => getEnviromentVariables().NODE_ENV === "production";
