@@ -1,7 +1,17 @@
 import { Montserrat } from "next/font/google";
+import { generateMetadata } from "@/lib/generateMetadata";
 import type { Metadata } from "next";
+
 import { ReactNode } from "react";
 import { classNames } from "@/utils/classNames";
+
+import QueryProvider from "@/components/QueryProvider";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+
+import { SidebarProvider } from "@/ui/sidebar";
+import Header from "@/components/header/Header";
+import AppSidebar from "@/components/AppSidebar";
+import Footer from "@/components/footer/Footer";
 
 import "@/app/styles/globals.scss";
 
@@ -11,10 +21,7 @@ const montserrat = Montserrat({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "Ecommerce App - Online Shopping",
-  description: "Fast shipping and quality guaranteed",
-};
+export const metadata: Metadata = generateMetadata();
 
 interface RootLayoutProps {
   children: ReactNode;
@@ -22,9 +29,34 @@ interface RootLayoutProps {
 
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={classNames(montserrat.variable, "antialiased")}>
-        {children}
+    <html lang="en">
+      <body
+        suppressHydrationWarning
+        className={classNames(
+          montserrat.variable,
+          "min-h-[100dvh] h-full flex flex-col",
+          "bg-gradient-to-br from-gray-50 to-gray-100"
+        )}
+      >
+        <QueryProvider>
+          <ReactQueryDevtools initialIsOpen={false} />
+
+          <SidebarProvider>
+            <Header />
+            <AppSidebar />
+
+            <main
+              className={classNames(
+                "flex-1 max-w-screen-2xl w-full",
+                "px-4 md:px-8 xl:px-12 mt-4 mx-auto"
+              )}
+            >
+              {children}
+            </main>
+
+            <Footer />
+          </SidebarProvider>
+        </QueryProvider>
       </body>
     </html>
   );
