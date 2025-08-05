@@ -14,7 +14,7 @@ const AppSidebar = () => {
       <ul className="flex flex-col gap-1">
         {userMenu.map(({ id, label, icon: Icon }) => (
           <li key={id}>
-            <a
+            <div
               className={classNames(
                 "flex items-center gap-2",
                 "py-1 cursor-pointer",
@@ -25,7 +25,7 @@ const AppSidebar = () => {
             >
               <Icon className="w-7 h-7" />
               <span className="uppercase font-medium text-xl">{label}</span>
-            </a>
+            </div>
           </li>
         ))}
       </ul>
