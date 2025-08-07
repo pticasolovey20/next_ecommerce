@@ -10,7 +10,12 @@ interface CartModalProps {
 
 const CartModal = ({ isModalOpen, handleCloseModal }: CartModalProps) => {
   return (
-    <Modal isModalOpen={isModalOpen} handleCloseModal={handleCloseModal} modalTitle="CART">
+    <Modal
+      modalTitle="CART"
+      isModalOpen={isModalOpen}
+      handleCloseModal={handleCloseModal}
+      containerClassName="w-full sm:max-w-[500px]"
+    >
       <CartList products={PRODUCTS} />
     </Modal>
   );

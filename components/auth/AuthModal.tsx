@@ -1,5 +1,5 @@
 import Modal from "@/ui/modal/Modal";
-import AuthContent from "@/components/auth/AuthContent";
+import AuthProviders from "@/components/auth/AuthProviders";
 
 interface AuthModalProps {
   isModalOpen: boolean;
@@ -8,8 +8,13 @@ interface AuthModalProps {
 
 const AuthModal = ({ isModalOpen, handleCloseModal }: AuthModalProps) => {
   return (
-    <Modal isModalOpen={isModalOpen} handleCloseModal={handleCloseModal} modalTitle="AUTH">
-      <AuthContent />
+    <Modal
+      modalTitle="AUTH"
+      isModalOpen={isModalOpen}
+      handleCloseModal={handleCloseModal}
+      containerClassName="w-full sm:max-w-[400px]"
+    >
+      <AuthProviders />
     </Modal>
   );
 };

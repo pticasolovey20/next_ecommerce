@@ -8,7 +8,7 @@ interface CartListProps {
 
 const CartList = ({ products }: CartListProps) => {
   return (
-    <ul className="flex flex-col gap-4">
+    <ul className="w-full flex flex-col gap-4">
       {products.slice(0, 8).map((product, index) => (
         <li key={index}>
           <CartItem product={product} />
