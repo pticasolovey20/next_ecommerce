@@ -1,6 +1,7 @@
 "use client";
 
 import { useSidebarContext } from "@/ui/sidebar/context";
+import { useState } from "react";
 import { classNames } from "@/utils/classNames";
 
 import Button from "@/ui/Button";
@@ -8,9 +9,15 @@ import { MdFavorite, MdMenu } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
 import { HiShoppingCart } from "react-icons/hi";
 import SearchProductWrapper from "@/components/search-product/SearchProductWrapper";
+import CartModal from "@/components/cart/CartModal";
 
 const Header = () => {
-  const { isOpen, handleOpenSidebar } = useSidebarContext();
+  const { isSidebarOpen, handleOpenSidebar } = useSidebarContext();
+
+  const [isCartModalOpen, setIsCartModalOpen] = useState<boolean>(false);
+
+  const handleOpenCartModal = () => setIsCartModalOpen(true);
+  const handleCloseCartModal = () => setIsCartModalOpen(false);
 
   return (
     <header className="w-full h-16">
@@ -23,7 +30,7 @@ const Header = () => {
       >
         <div className="max-w-screen-2xl w-full h-16 px-4 md:px-8 xl:px-12 mx-auto">
           <div id="header-layout" className="relative h-full flex items-center gap-4">
-            {!isOpen && (
+            {!isSidebarOpen && (
               <Button
                 size="icon"
                 variant="ghost"
@@ -59,6 +66,7 @@ const Header = () => {
               size="icon"
               variant="ghost"
               aria-label="Open cart"
+              onClick={handleOpenCartModal}
               className="w-10 h-10 hover-lift hidden sm:inline-flex shrink-0"
             >
               <HiShoppingCart className="w-full h-full" />
@@ -66,6 +74,8 @@ const Header = () => {
           </div>
         </div>
       </div>
+
+      <CartModal isModalOpen={isCartModalOpen} handleCloseModal={handleCloseCartModal} />
     </header>
   );
 };

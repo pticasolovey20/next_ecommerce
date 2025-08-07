@@ -1,9 +1,10 @@
 "use client";
 
-import { ReactNode, useEffect, Fragment } from "react";
+import { ReactNode, Fragment } from "react";
 import { useSidebarContext } from "@/ui/sidebar/context";
 import { useIsMounted } from "@/hooks/useIsMounted";
-import { calculateScrollBarWidth } from "@/utils/calculateScrollBarWidth";
+import { useScrollLock } from "@/hooks/useScrollLock";
+
 import { classNames } from "@/utils/classNames";
 
 import Button from "@/ui/Button";
@@ -15,40 +16,16 @@ interface SidebarRootProps {
 }
 
 const SidebarRoot = ({ className, children }: SidebarRootProps) => {
-  const { isOpen, handleCloseSidebar } = useSidebarContext();
+  const { isSidebarOpen, handleCloseSidebar } = useSidebarContext();
   const isMounted = useIsMounted();
 
-  useEffect(() => {
-    if (!isMounted) return;
-
-    if (isOpen) {
-      const scrollBarWidth = calculateScrollBarWidth();
-
-      document.body.style.overflow = "hidden";
-      document.body.style.marginRight = `${scrollBarWidth}px`;
-
-      const header = document.getElementById("header-layout");
-      if (header) header.style.marginRight = `${scrollBarWidth / 2}px`;
-    } else {
-      document.body.style.overflow = "unset";
-      document.body.style.marginRight = "";
-
-      const header = document.getElementById("header-layout");
-      if (header) header.style.marginRight = "";
-    }
-
-    return () => {
-      document.body.style.overflow = "unset";
-      document.body.style.marginRight = "";
-
-      const header = document.getElementById("header-layout");
-      if (header) header.style.marginRight = "";
-    };
-  }, [isOpen, isMounted]);
+  useScrollLock(isSidebarOpen, isMounted);
 
   return (
     <Fragment>
-      {isOpen && <div className="fixed inset-0 bg-black/50 z-[40]" onClick={handleCloseSidebar} />}
+      {isSidebarOpen && (
+        <div className="fixed inset-0 bg-black/50 z-[40]" onClick={handleCloseSidebar} />
+      )}
 
       <aside
         className={classNames(
@@ -56,7 +33,7 @@ const SidebarRoot = ({ className, children }: SidebarRootProps) => {
           "min-h-[100dvh] h-full max-w-[400px] w-full",
           "flex flex-col",
           "border-r-2 border-muted-foreground bg-muted shadow-md",
-          isOpen ? "translate-x-0" : "-translate-x-full",
+          isSidebarOpen ? "translate-x-0" : "-translate-x-full",
           "transition-transform duration-500 ease-in-out"
         )}
       >

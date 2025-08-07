@@ -27,9 +27,9 @@ const SearchProductCard = ({ product, onClick }: SerachProductCardProps) => {
             containerClassName="shrink-0 w-16 h-16 rounded-md"
           />
 
-          <div className="w-full flex flex-col overflow-hidden">
-            <span className="text-xl truncate font-medium">{product.title}</span>
-            <span className="text-lg">${product.price}</span>
+          <div className="w-full flex flex-col text-foreground overflow-hidden">
+            <span className="text-xl truncate">{product.title}</span>
+            <span className="text-lg font-medium">${product.price}</span>
           </div>
         </div>
       </Link>

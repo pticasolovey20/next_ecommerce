@@ -26,18 +26,12 @@ const ProductGallery = ({ productId }: ProductGalleryProps) => {
     return (
       <div className="space-y-6">
         {/* MAIN IMAGE */}
-        <ProductSkeleton className="w-full h-60 sm:h-96 flex justify-center rounded-xl" />
+        <ProductSkeleton className="w-full h-60 sm:h-96 rounded-xl" />
 
         {/* THUMBNAILS */}
         <div className="grid grid-cols-4 gap-4">
           {Array.from({ length: 4 }).map((_, index) => (
-            <ProductSkeleton
-              key={index}
-              className={classNames(
-                "h-24 flex items-center justify-center",
-                "border-2 border-transparent rounded-xl"
-              )}
-            />
+            <ProductSkeleton key={index} className="h-24 border-2 border-transparent rounded-xl" />
           ))}
         </div>
       </div>
@@ -48,17 +42,16 @@ const ProductGallery = ({ productId }: ProductGalleryProps) => {
   return (
     <div className="space-y-6">
       {/* MAIN IMAGE */}
-      <div className="relative w-full flex justify-center shadow-xl rounded-xl bg-white/60 hover-lift overflow-hidden">
-        <ProductImage
-          fill
-          priority
-          quality={100}
-          src={selectedAsset?.src || ""}
-          alt={selectedAsset?.alt || ""}
-          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
-          containerClassName="relative w-full h-60 sm:h-96 aspect-square cursor-pointer"
-        />
-      </div>
+
+      <ProductImage
+        fill
+        priority
+        quality={100}
+        src={selectedAsset?.src || ""}
+        alt={selectedAsset?.alt || ""}
+        sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
+        containerClassName="h-60 sm:h-96 shadow-xl rounded-xl hover-lift"
+      />
 
       <div className="lg:hidden flex items-center justify-center gap-2">
         {product?.assets.map((_, index) => (
@@ -93,8 +86,7 @@ const ProductGallery = ({ productId }: ProductGalleryProps) => {
                 alt={alt}
                 sizes="(min-width: 1024px) 25vw, 0px"
                 containerClassName={classNames(
-                  "relative h-24 overflow-hidden",
-                  "border-2 rounded-xl shadow-lg bg-white/60 cursor-pointer hover-lift",
+                  "h-24 border-2 rounded-xl shadow-lg bg-white/60 hover-lift",
                   index === selectedImage ? "border-gray-400" : "border-transparent"
                 )}
               />
