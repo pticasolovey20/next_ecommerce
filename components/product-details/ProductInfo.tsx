@@ -54,7 +54,7 @@ const ProductInfo = ({ productId }: ProductInfoProps) => {
           <ProductSkeleton className="h-[62px] w-full rounded-xl" />
         </div>
       ) : (
-        <ActionButtons />
+        <ActionButtons product={product!} />
       )}
     </div>
   );
