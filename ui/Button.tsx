@@ -35,7 +35,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       sm: "text-sm px-3 py-2 rounded-lg",
       md: "text-sm px-4 py-2 rounded-xl",
       lg: "text-lg font-semibold tracking-wide px-8 py-3 rounded-xl",
-      icon: "p-1.5 rounded-lg shadow-sm",
+      icon: "p-1.5 rounded-lg",
     };
 
     return (

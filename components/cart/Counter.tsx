@@ -1,23 +1,22 @@
 "use client";
 
-import { useState } from "react";
-
 import Button from "@/ui/Button";
 import { FiMinus, FiPlus } from "react-icons/fi";
 
-const Counter = () => {
-  const [counterValue, setCounterValue] = useState<number>(0);
+interface CounterProps {
+  counterValue: number;
+  onValueDecrease: () => void;
+  onValueIncrease: () => void;
+}
 
-  const hanleDecreaseValue = () => setCounterValue((prev) => prev - 1);
-  const hanleIncreaseValue = () => setCounterValue((prev) => prev + 1);
-
+const Counter = ({ counterValue, onValueDecrease, onValueIncrease }: CounterProps) => {
   return (
     <div className="flex items-center gap-2">
       <Button
         size="icon"
         variant="ghost"
         aria-label="Decrease value"
-        onClick={hanleDecreaseValue}
+        onClick={onValueDecrease}
         className="w-9 h-9"
       >
         <FiMinus className="w-full h-full" />
@@ -31,7 +30,7 @@ const Counter = () => {
         size="icon"
         variant="ghost"
         aria-label="Increase value"
-        onClick={hanleIncreaseValue}
+        onClick={onValueIncrease}
         className="w-9 h-9"
       >
         <FiPlus className="w-full h-full" />
