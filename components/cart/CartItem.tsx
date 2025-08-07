@@ -28,7 +28,7 @@ const CartItem = ({ product }: CartItemProps) => {
         quality={75}
         src={product.assets[0].src}
         alt={product.assets[0].alt}
-        containerClassName="shrink-0 sm:w-32 h-40 sm:h-32"
+        containerClassName="shrink-0 sm:w-32 h-50 sm:h-32"
       />
 
       <div className="relative w-full flex flex-col justify-between gap-3 p-4 overflow-hidden">

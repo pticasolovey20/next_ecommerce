@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { useSidebarContext } from "@/ui/sidebar/context";
 import { useCartStore } from "@/stores/useCartStore";
 import { classNames } from "@/utils/classNames";
@@ -10,9 +11,15 @@ import { CgProfile } from "react-icons/cg";
 import { HiShoppingCart } from "react-icons/hi";
 import SearchProductWrapper from "@/components/search-product/SearchProductWrapper";
 import CartModal from "@/components/cart/CartModal";
+import AuthModal from "@/components/auth/AuthModal";
 
 const Header = () => {
   const { isSidebarOpen, handleOpenSidebar } = useSidebarContext();
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState<boolean>(false);
+
+  const handleOpenAuthModal = () => setIsAuthModalOpen(true);
+  const handleCloseAuthModal = () => setIsAuthModalOpen(false);
+
   const openCart = useCartStore((state) => state.openCart);
 
   return (
@@ -44,6 +51,7 @@ const Header = () => {
               size="icon"
               variant="ghost"
               aria-label="Open profile"
+              onClick={handleOpenAuthModal}
               className="w-10 h-10 hover-lift hidden sm:inline-flex shrink-0"
             >
               <CgProfile className="w-full h-full" />
@@ -71,6 +79,7 @@ const Header = () => {
         </div>
       </div>
 
+      <AuthModal isModalOpen={isAuthModalOpen} handleCloseModal={handleCloseAuthModal} />
       <CartModal />
     </header>
   );

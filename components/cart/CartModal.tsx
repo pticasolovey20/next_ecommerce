@@ -11,9 +11,10 @@ const CartModal = () => {
 
   return (
     <Modal
+      modalTitle="CART" 
       isModalOpen={isCartOpen && cartList.length > 0}
       handleCloseModal={closeCart}
-      modalTitle="CART"
+      containerClassName="w-full sm:max-w-[500px]"
     >
       <CartList />
 

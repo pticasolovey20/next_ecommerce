@@ -6,16 +6,25 @@ import { useScrollLock } from "@/hooks/useScrollLock";
 import { classNames } from "@/utils/classNames";
 import { createPortal } from "react-dom";
 
-import ModalContainer from "@/ui/modal/ModalContainer";
+import Button from "@/ui/Button";
+import { MdClose } from "react-icons/md";
+import Separator from "@/ui/Separator";
 
 interface ModalRootProps {
+  modalTitle: string;
   isModalOpen: boolean;
   handleCloseModal: () => void;
-  modalTitle: string;
+  containerClassName?: string;
   children: ReactNode;
 }
 
-const Modal = ({ isModalOpen, handleCloseModal, modalTitle, children }: ModalRootProps) => {
+const Modal = ({
+  modalTitle,
+  isModalOpen,
+  handleCloseModal,
+  containerClassName,
+  children,
+}: ModalRootProps) => {
   const isMounted = useIsMounted();
 
   useScrollLock(isModalOpen, isMounted);
@@ -38,21 +47,38 @@ const Modal = ({ isModalOpen, handleCloseModal, modalTitle, children }: ModalRoo
   return createPortal(
     isModalOpen && (
       <div
-        onClick={handleCloseModal}
         className="fixed inset-0 flex items-center justify-center bg-black/30 z-[50]"
+        onClick={handleCloseModal}
       >
         <div
           onClick={(event) => event.stopPropagation()}
           className={classNames(
-            "fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2",
-            "w-full sm:max-w-[600px] md:max-w-[750px] lg:max-w-[900px]",
-            "h-full sm:max-h-[calc(100dvh-50px)] sm:h-auto",
-            "flex sm:px-4 md:px-8 overflow-hidden"
+            "relative flex flex-col",
+            "h-full sm:max-h-[calc(100dvh-100px)] sm:h-auto",
+            "sm:rounded-xl bg-muted overflow-hidden",
+            containerClassName
           )}
         >
-          <ModalContainer modalTitle={modalTitle} onClose={handleCloseModal}>
-            {children}
-          </ModalContainer>
+          <div className="flex items-center justify-between gap-8 p-4">
+            <h3
+              title={modalTitle}
+              className={classNames(
+                "w-full truncate",
+                "text-2xl font-semibold text-foreground uppercase"
+              )}
+            >
+              {modalTitle}
+            </h3>
+
+            <Button size="icon" variant="ghost" onClick={handleCloseModal}>
+              <MdClose className="w-6 h-6" />
+            </Button>
+          </div>
+
+          <Separator className="mt-0 mb-[1px]" />
+
+          {/* CONTENT */}
+          <div className="flex-1 p-4 overflow-y-auto overflow-x-hidden">{children}</div>
         </div>
       </div>
     ),
