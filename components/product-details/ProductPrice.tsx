@@ -8,11 +8,11 @@ interface ProductPriceProps {
 const ProductPrice = ({ product }: ProductPriceProps) => {
   return (
     <div className="space-y-2">
-      <span className="text-4xl font-medium text-gray-700">${product?.price}</span>
+      <span className="text-4xl font-medium text-foreground">${product?.price}</span>
 
       <div className="flex items-center space-x-4">
         {product?.oldPrice && (
-          <span className="text-xl text-gray-500 line-through">${product.oldPrice}</span>
+          <span className="text-xl text-muted-foreground line-through">${product.oldPrice}</span>
         )}
 
         {product?.discount && (

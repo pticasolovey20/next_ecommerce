@@ -10,7 +10,7 @@ const CardContainer = ({ className, children }: CardContainerProps) => {
   return (
     <div
       className={classNames(
-        "p-6 rounded-2xl border border-gray-200/50 shadow-lg bg-white/60 overflow-hidden",
+        "p-6 rounded-2xl border border-gray-300/50 shadow-lg bg-white/60 overflow-hidden",
         className
       )}
     >
