@@ -1,7 +1,7 @@
 "use client";
 
 import { useSidebarContext } from "@/ui/sidebar/context";
-import { useState } from "react";
+import { useCartStore } from "@/stores/useCartStore";
 import { classNames } from "@/utils/classNames";
 
 import Button from "@/ui/Button";
@@ -14,16 +14,12 @@ import AuthModal from "@/components/auth/AuthModal";
 
 const Header = () => {
   const { isSidebarOpen, handleOpenSidebar } = useSidebarContext();
-
   const [isAuthModalOpen, setIsAuthModalOpen] = useState<boolean>(false);
 
   const handleOpenAuthModal = () => setIsAuthModalOpen(true);
   const handleCloseAuthModal = () => setIsAuthModalOpen(false);
 
-  const [isCartModalOpen, setIsCartModalOpen] = useState<boolean>(false);
-
-  const handleOpenCartModal = () => setIsCartModalOpen(true);
-  const handleCloseCartModal = () => setIsCartModalOpen(false);
+  const openCart = useCartStore((state) => state.openCart);
 
   return (
     <header className="w-full h-16">
@@ -73,7 +69,7 @@ const Header = () => {
               size="icon"
               variant="ghost"
               aria-label="Open cart"
-              onClick={handleOpenCartModal}
+              onClick={openCart}
               className="w-10 h-10 hover-lift hidden sm:inline-flex shrink-0"
             >
               <HiShoppingCart className="w-full h-full" />
@@ -82,8 +78,8 @@ const Header = () => {
         </div>
       </div>
 
-      <CartModal isModalOpen={isCartModalOpen} handleCloseModal={handleCloseCartModal} />
       <AuthModal isModalOpen={isAuthModalOpen} handleCloseModal={handleCloseAuthModal} />
+      <CartModal />
     </header>
   );
 };

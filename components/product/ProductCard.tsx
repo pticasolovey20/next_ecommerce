@@ -6,7 +6,7 @@ import Link from "next/link";
 import ProductImage from "@/components/product/ProductImage";
 import Button from "@/ui/Button";
 import { FaHeart } from "react-icons/fa";
-import { HiShoppingCart } from "react-icons/hi";
+import ToggleCartButton from "@/components/cart/ToggleCartButton";
 
 interface ProductCardProps {
   product: ProductData;
@@ -52,14 +52,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
         <FaHeart className="w-full h-full" />
       </Button>
 
-      <Button
-        size="icon"
-        variant="ghost"
-        aria-label="Add to cart"
-        className="absolute bottom-4 right-4 w-8 h-8 p-1 hover:text-green-500"
-      >
-        <HiShoppingCart className="w-full h-full" />
-      </Button>
+      <ToggleCartButton product={product} />
     </CardContainer>
   );
 };

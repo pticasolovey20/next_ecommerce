@@ -1,15 +1,18 @@
-import { ProductData } from "@/types/product";
+import { useCartStore } from "@/stores/useCartStore";
 
+import EmptyList from "@/ui/EmptyList";
 import CartItem from "@/components/cart/CartItem";
 
-interface CartListProps {
-  products: Omit<ProductData, "id">[];
-}
+const CartList = () => {
+  const cartList = useCartStore((state) => state.cartList);
 
-const CartList = ({ products }: CartListProps) => {
+  if (cartList.length <= 0) {
+    return <EmptyList containerClassName="h-[300px]" />;
+  }
+
   return (
-    <ul className="w-full flex flex-col gap-4">
-      {products.slice(0, 8).map((product, index) => (
+    <ul className="flex flex-col gap-4">
+      {cartList.map((product, index) => (
         <li key={index}>
           <CartItem product={product} />
         </li>
