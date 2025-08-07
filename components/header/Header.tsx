@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { useSidebarContext } from "@/ui/sidebar/context";
 import { useCartStore } from "@/stores/useCartStore";
 import { classNames } from "@/utils/classNames";
