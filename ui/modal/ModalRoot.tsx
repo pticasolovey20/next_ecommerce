@@ -49,7 +49,7 @@ const ModalRoot = ({
           className={classNames(
             "relative flex flex-col",
             "h-full sm:max-h-[calc(100dvh-100px)] sm:h-auto",
-            "sm:rounded-xl bg-muted overflow-hidden",
+            "sm:rounded-xl bg-muted shadow-lg overflow-hidden",
             containerClassName
           )}
         >
