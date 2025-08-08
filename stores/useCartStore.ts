@@ -33,8 +33,9 @@ export const useCartStore = create<CartState>((set, get) => ({
 
   addProduct: (product, quantity = 1) => {
     const cartList = get().cartList;
-
     const existingProduct = cartList.find((item) => item.id === product.id);
+
+    get().openCart();
 
     if (existingProduct) {
       set((state) => ({
@@ -43,8 +44,6 @@ export const useCartStore = create<CartState>((set, get) => ({
         ),
       }));
     } else {
-      get().openCart();
-
       set((state) => ({
         cartList: [{ ...product, quantity }, ...state.cartList],
       }));
