@@ -11,9 +11,9 @@ const CartList = () => {
   }
 
   return (
-    <ul className="flex flex-col gap-4">
+    <ul className="w-full grid sm:grid-cols-2 md:grid-cols-3 gap-4">
       {cartList.map((product, index) => (
-        <li key={index}>
+        <li key={index} className="w-full">
           <CartItem product={product} />
         </li>
       ))}

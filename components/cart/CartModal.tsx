@@ -15,7 +15,7 @@ const CartModal = () => {
     <ModalRoot
       isModalOpen={isCartOpen && cartList.length > 0}
       handleCloseModal={closeCart}
-      containerClassName="w-full sm:max-w-[700px]"
+      containerClassName="w-full sm:max-w-[600px] md:max-w-3xl lg:max-w-4xl"
     >
       <ModalHeader modalTitle="CART" handleCloseModal={closeCart} />
 

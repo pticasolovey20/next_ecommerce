@@ -21,48 +21,44 @@ const CartItem = ({ product }: CartItemProps) => {
   const decrementQuantity = useCartStore((state) => state.decrementQuantity);
 
   return (
-    <CardContainer className="relative sm:h-32 flex flex-col sm:flex-row p-0 rounded-lg">
+    <CardContainer className="relative min-h-[250px] sm:max-h-[300px] h-full flex flex-col p-0 rounded-lg">
       <ProductImage
         fill
         priority
         quality={75}
         src={product.assets[0].src}
         alt={product.assets[0].alt}
-        containerClassName="shrink-0 sm:w-32 h-50 sm:h-32"
+        containerClassName="shrink-0 h-50 sm:h-40"
       />
 
-      <div className="relative w-full flex flex-col justify-between gap-3 p-4 overflow-hidden">
-        <div className="flex items-center justify-between gap-4">
-          <span className="text-2xl truncate">{product.title}</span>
+      <div className="relative w-full w-full flex-1 flex flex-col p-2 overflow-hidden">
+        <span className="text-xl truncate">{product.title}</span>
 
-          <Button
-            aria-label="Remove product from cart"
-            variant="ghost"
-            className="shrink-0 w-9 h-9 p-2 hover:text-red-500"
-            onClick={() => removeProduct(product.id)}
-          >
-            <BiTrash className="w-full h-full" />
-          </Button>
+        <div className="flex-1 flex flex-col">
+          {product.oldPrice && (
+            <span className="text-muted-foreground font-medium line-through">
+              ${product.oldPrice}
+            </span>
+          )}
+
+          <span className="text-foreground text-lg font-semibold">${product.price}</span>
         </div>
 
-        <div className="flex items-center justify-between">
-          <div className="flex flex-col">
-            {product.oldPrice && (
-              <span className="text-muted-foreground text-base font-medium line-through">
-                ${product.oldPrice}
-              </span>
-            )}
-
-            <span className=" text-foreground text-xl font-semibold">${product.price}</span>
-          </div>
-
-          <Counter
-            counterValue={quantity}
-            onValueDecrease={() => decrementQuantity(product.id)}
-            onValueIncrease={() => incrementQuantity(product.id)}
-          />
-        </div>
+        <Counter
+          counterValue={quantity}
+          onValueDecrease={() => decrementQuantity(product.id)}
+          onValueIncrease={() => incrementQuantity(product.id)}
+        />
       </div>
+
+      <Button
+        variant="ghost"
+        aria-label="Remove product from cart"
+        className="absolute top-2 right-2 shrink-0 w-9 h-9 p-2 text-red-500 hover:text-red-500"
+        onClick={() => removeProduct(product.id)}
+      >
+        <BiTrash className="w-full h-full" />
+      </Button>
     </CardContainer>
   );
 };
