@@ -1,4 +1,4 @@
-import Modal from "@/ui/modal/Modal";
+import { ModalRoot, ModalHeader, ModalContent } from "@/ui/modal";
 import AuthProviders from "@/components/auth/AuthProviders";
 
 interface AuthModalProps {
@@ -8,14 +8,17 @@ interface AuthModalProps {
 
 const AuthModal = ({ isModalOpen, handleCloseModal }: AuthModalProps) => {
   return (
-    <Modal
-      modalTitle="AUTH"
+    <ModalRoot
       isModalOpen={isModalOpen}
       handleCloseModal={handleCloseModal}
       containerClassName="w-full sm:max-w-[400px]"
     >
-      <AuthProviders />
-    </Modal>
+      <ModalHeader modalTitle="CART" handleCloseModal={handleCloseModal} />
+
+      <ModalContent>
+        <AuthProviders />
+      </ModalContent>
+    </ModalRoot>
   );
 };
 
