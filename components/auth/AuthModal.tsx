@@ -11,16 +11,18 @@ const AuthModal = ({ isModalOpen, handleCloseModal }: AuthModalProps) => {
     <ModalRoot
       isModalOpen={isModalOpen}
       handleCloseModal={handleCloseModal}
-      containerClassName="w-full sm:max-w-[400px]"
+      maxWidth="sm:max-w-[400px]"
     >
-      <ModalHeader modalTitle="CART" handleCloseModal={handleCloseModal} />
+      <ModalHeader title="auth" handleCloseModal={handleCloseModal} />
 
-      <ModalContent className="flex flex-col gap-4">
-        <div className="w-full h-[100px] p-2 rounded-xl border border-blue-500 bg-blue-300/50">
-          <span className="font-semibold uppercase">authorize message</span>
+      <ModalContent>
+        <div className="flex flex-col gap-4 p-4">
+          <div className="w-full h-[100px] p-2 rounded-xl border border-blue-500 bg-blue-300/50">
+            <span className="font-semibold uppercase">authorize message</span>
+          </div>
+
+          <AuthProviders />
         </div>
-
-        <AuthProviders />
       </ModalContent>
     </ModalRoot>
   );

@@ -1,12 +1,12 @@
 import { classNames } from "@/utils/classNames";
 
 interface EmptyListProps {
-  containerClassName?: string;
+  className?: string;
 }
 
-const EmptyList = ({ containerClassName }: EmptyListProps) => {
+const EmptyList = ({ className }: EmptyListProps) => {
   return (
-    <div className={classNames("w-full flex items-center justify-center", containerClassName)}>
+    <div className={classNames("w-full flex items-center justify-center p-4", className)}>
       <p className="text-foreground text-lg font-medium">Oops... Nothing found!</p>
     </div>
   );

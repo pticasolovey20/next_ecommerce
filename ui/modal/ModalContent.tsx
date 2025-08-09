@@ -8,7 +8,9 @@ interface ModalContentProps {
 
 const ModalContent = ({ className, children }: ModalContentProps) => {
   return (
-    <div className={classNames("relative flex-1 p-4 overflow-y-auto overflow-x-hidden", className)}>
+    <div
+      className={classNames("flex-1 overflow-x-hidden overflow-y-auto bg-background", className)}
+    >
       {children}
     </div>
   );

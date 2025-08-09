@@ -1,25 +1,20 @@
-import { classNames } from "@/utils/classNames";
-
 import Button from "@/ui/Button";
 import { MdClose } from "react-icons/md";
 
 interface ModalHeaderProps {
-  modalTitle: string;
+  title: string;
   handleCloseModal: () => void;
 }
 
-const ModalHeader = ({ modalTitle, handleCloseModal }: ModalHeaderProps) => {
+const ModalHeader = ({ title, handleCloseModal }: ModalHeaderProps) => {
   return (
-    <div className="flex items-center justify-between gap-8 p-4 border-b border-gray-200">
-      <h3
-        title={modalTitle}
-        className={classNames(
-          "w-full truncate",
-          "text-2xl font-semibold text-foreground uppercase"
-        )}
+    <div className="flex justify-between p-4 border-b border-gray-200">
+      <h2
+        title={title}
+        className="w-full truncate text-2xl font-semibold text-foreground uppercase"
       >
-        {modalTitle}
-      </h3>
+        {title}
+      </h2>
 
       <Button size="icon" variant="ghost" onClick={handleCloseModal}>
         <MdClose className="w-6 h-6" />
