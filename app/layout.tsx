@@ -48,7 +48,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
             <main
               className={classNames(
                 "flex-1 max-w-screen-2xl w-full",
-                "px-4 md:px-8 xl:px-12 mt-4 mx-auto"
+                "px-4 md:px-8 xl:px-12 mx-auto"
               )}
             >
               {children}
