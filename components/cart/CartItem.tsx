@@ -31,18 +31,18 @@ const CartItem = ({ product }: CartItemProps) => {
         containerClassName="shrink-0 h-50 sm:flex-1"
       />
 
-      <div className="relative w-full w-full flex flex-col p-4 overflow-hidden">
-        <span className="text-xl truncate">{product.title}</span>
+      <div className="relative w-full flex flex-col gap-2 p-3 overflow-hidden">
+        <span className="text-lg truncate">{product.title}</span>
 
-        <div className="flex-1 flex flex-col">
+        <div className="flex-1 flex justify-between">
           <span className="text-foreground text-lg font-semibold">${product.price}</span>
-        </div>
 
-        <Counter
-          counterValue={quantity}
-          onValueDecrease={() => decrementQuantity(product.id)}
-          onValueIncrease={() => incrementQuantity(product.id)}
-        />
+          <Counter
+            counterValue={quantity}
+            onValueDecrease={() => decrementQuantity(product.id)}
+            onValueIncrease={() => incrementQuantity(product.id)}
+          />
+        </div>
       </div>
 
       <Button
