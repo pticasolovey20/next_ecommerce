@@ -7,6 +7,7 @@ import ProductImage from "@/components/product/ProductImage";
 import Button from "@/ui/Button";
 import { FaHeart } from "react-icons/fa";
 import ToggleCartButton from "@/components/cart/ToggleCartButton";
+import ProductPrice from "./ProductPrice";
 
 interface ProductCardProps {
   product: ProductData;
@@ -16,19 +17,22 @@ const ProductCard = ({ product }: ProductCardProps) => {
   return (
     <CardContainer
       className={classNames(
-        "group relative w-full p-0 rounded-xl",
-        "hover:shadow-xl hover:-translate-y-1 transition-transform duration-300"
+        "group relative",
+        "w-full h-full",
+        "p-0 rounded-xl",
+        "hover:shadow-xl hover:-translate-y-1",
+        "transition-transform duration-300"
       )}
     >
-      <Link href={`/products/${product.id}`}>
+      <Link href={`/products/${product.id}`} className="flex flex-col h-full">
         <ProductImage
           fill
           quality={75}
           loading="lazy"
           src={product.assets[0].src}
           alt={product.assets[0].alt}
-          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
-          containerClassName="aspect-square bg-background"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw, 25vw"
+          containerClassName="shrink-0 h-50 sm:flex-1 bg-background"
           className={classNames(
             "object-cover",
             "group-hover:scale-110",
@@ -36,10 +40,13 @@ const ProductCard = ({ product }: ProductCardProps) => {
           )}
         />
 
-        <div className="p-4">
-          <h2 className="font-semibold">{product.title}</h2>
-          <p className="w-full truncate text-muted-foreground">{product.description}</p>
-          <span className="text-xl font-semibold mt-4 block">${product.price}</span>
+        <div className="h-[150px] flex flex-col p-4">
+          <div className="flex-1">
+            <h2 className="text-xl font-semibold">{product.title}</h2>
+            <p className="w-full truncate text-muted-foreground">{product.description}</p>
+          </div>
+
+          <ProductPrice product={product} className="mt-2" />
         </div>
       </Link>
 
@@ -51,7 +58,6 @@ const ProductCard = ({ product }: ProductCardProps) => {
       >
         <FaHeart className="w-full h-full" />
       </Button>
-
       <ToggleCartButton product={product} />
     </CardContainer>
   );

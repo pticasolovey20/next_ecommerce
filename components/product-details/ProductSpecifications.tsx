@@ -19,7 +19,7 @@ const ProductSpecifications = ({ product }: ProductSpecificationsProps) => {
           <li key={index}>
             <div
               className={classNames(
-                "flex justify-between items-center py-2",
+                "flex flex-wrap justify-between sm:items-center gap-2 py-2",
                 index === features.length - 1 ? "" : "border-b border-gray-200"
               )}
             >

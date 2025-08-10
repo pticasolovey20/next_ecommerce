@@ -20,13 +20,15 @@ const ProductList = () => {
 
   return (
     <div>
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+      <ul className="w-full grid sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4">
         {products?.map((product: ProductData) => (
-          <ProductCard key={product.id} product={product} />
+          <li key={product.id} className="min-w-0 max-w-full sm:aspect-square">
+            <ProductCard product={product} />
+          </li>
         ))}
 
         {(isFetchingNextPage || isLoading) && <ProductListSkeleton />}
-      </div>
+      </ul>
 
       {hasNextPage && (
         <div className="flex justify-center mt-8">
