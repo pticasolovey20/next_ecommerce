@@ -25,6 +25,7 @@ const Header = () => {
   return (
     <header className="w-full h-16">
       <div
+        id="header-layout"
         className={classNames(
           "w-full fixed top-0 left-0",
           "border-b border-gray-200/50",
@@ -32,7 +33,7 @@ const Header = () => {
         )}
       >
         <div className="max-w-screen-2xl w-full h-16 px-4 md:px-8 xl:px-12 mx-auto">
-          <div id="header-layout" className="relative h-full flex items-center gap-4">
+          <div className="relative h-full flex items-center gap-4">
             {!isSidebarOpen && (
               <Button
                 size="icon"
