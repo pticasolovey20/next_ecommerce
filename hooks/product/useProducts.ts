@@ -19,6 +19,7 @@ export const useProducts = (limit: number): UseProductsReturn => {
   return {
     isLoading,
     isError,
+    isEmpty: data?.length === 0,
     products: data,
 
     hasNextPage,
