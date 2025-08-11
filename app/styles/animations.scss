@@ -6,4 +6,19 @@
       opacity: 0.5;
     }
   }
+
+  --animate-fade-sequence: fade-sequence 0.5s ease-in-out infinite;
+
+  @keyframes fade-sequence {
+    0%,
+    100% {
+      opacity: 0.2;
+      transform: scale(0.9);
+    }
+
+    50% {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+  }
 }

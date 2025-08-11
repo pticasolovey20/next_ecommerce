@@ -1,6 +1,6 @@
 import { CartItemData } from "@/types/cart";
 
-import LoadingSpinner from "@/ui/LoadingSpinner";
+import Loader from "@/ui/Loader";
 import EmptyList from "@/ui/EmptyList";
 import CartItem from "@/components/cart/CartItem";
 
@@ -12,7 +12,7 @@ interface CartListProps {
 
 const CartList = ({ isLoading, isEmpty, list }: CartListProps) => {
   if (isLoading) {
-    return <LoadingSpinner className="h-[300px]" />;
+    return <Loader className="h-[300px]" />;
   }
 
   if (isEmpty) {

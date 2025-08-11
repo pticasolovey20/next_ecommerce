@@ -1,7 +1,7 @@
-import LoadingSpinner from "@/ui/LoadingSpinner";
+import Loader from "@/ui/Loader";
 
 const Loading = () => {
-  return <LoadingSpinner className="flex-1" />;
+  return <Loader className="flex-1" />;
 };
 
 export default Loading;
