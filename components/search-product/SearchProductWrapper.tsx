@@ -49,15 +49,15 @@ const SearchProductWrapper = () => {
         <div
           className={classNames(
             "absolute top-7 md:top-12 flex w-full max-h-[calc(100dvh-80px)]",
-            "p-2 rounded-lg shadow-lg shadow-black/50 bg-white z-[30]"
+            "rounded-lg shadow-lg shadow-black/50 bg-white z-[30]"
           )}
         >
           {isLoading ? (
-            <LoadingSpinner containerClassName="py-4" />
+            <LoadingSpinner className="h-[300px]" />
           ) : products?.length ? (
             <SearchProductList products={products} onSelect={handleSelectProduct} />
           ) : (
-            <EmptyList containerClassName="py-4" />
+            <EmptyList className="h-[300px]" />
           )}
         </div>
       )}

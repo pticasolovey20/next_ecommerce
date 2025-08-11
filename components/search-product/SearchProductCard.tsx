@@ -13,7 +13,7 @@ interface SerachProductCardProps {
 const SearchProductCard = ({ product, onClick }: SerachProductCardProps) => {
   return (
     <div
-      className="relative flex group p-1 rounded-lg overflow-hidden hover:bg-gray-200/50"
+      className="relative flex group p-2 rounded-lg overflow-hidden hover:bg-gray-200/50"
       onClick={onClick}
     >
       <Link href={`/products/${product.id}`} className="grow pr-4 overflow-hidden">

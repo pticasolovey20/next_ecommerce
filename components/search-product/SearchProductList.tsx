@@ -9,7 +9,7 @@ interface SearchProductListProps {
 
 const SearchProductList = ({ products, onSelect }: SearchProductListProps) => {
   return (
-    <ul className="flex-1 flex flex-col overflow-y-auto overflow-x-hidden">
+    <ul className="flex-1 flex flex-col p-2 overflow-y-auto overflow-x-hidden">
       {products.map((product) => (
         <li key={product.id}>
           <SearchProductCard product={product} onClick={onSelect} />

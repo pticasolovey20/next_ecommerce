@@ -1,31 +1,20 @@
 import { classNames } from "@/utils/classNames";
 
 interface LoadingSpinnerProps {
-  containerClassName?: string;
-  iconClassName?: string;
-  textClassName?: string;
+  className?: string;
 }
 
-const LoadingSpinner = ({
-  containerClassName,
-  iconClassName,
-  textClassName,
-}: LoadingSpinnerProps) => {
+const LoadingSpinner = ({ className }: LoadingSpinnerProps) => {
   return (
-    <div
-      className={classNames("w-full flex items-center justify-center gap-2", containerClassName)}
-    >
+    <div className={classNames("w-full flex items-center justify-center gap-2 p-4", className)}>
       <div
         className={classNames(
           "w-5 h-5 border-2 border-muted-foreground/50 border-t-foreground rounded-full",
-          "animate-spin",
-          iconClassName
+          "animate-spin"
         )}
       />
 
-      <span className={classNames("text-foreground text-lg font-medium", textClassName)}>
-        Loading...
-      </span>
+      <span className="text-foreground text-lg font-medium">Loading...</span>
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import { CartItemData } from "@/types/cart";
 
+import LoadingSpinner from "@/ui/LoadingSpinner";
 import EmptyList from "@/ui/EmptyList";
 import CartItem from "@/components/cart/CartItem";
 
@@ -11,11 +12,7 @@ interface CartListProps {
 
 const CartList = ({ isLoading, isEmpty, list }: CartListProps) => {
   if (isLoading) {
-    return (
-      <div className="h-[300px] w-full flex items-center justify-center p-4">
-        <span className="text-lg font-medium">Loading...</span>
-      </div>
-    );
+    return <LoadingSpinner className="h-[300px]" />;
   }
 
   if (isEmpty) {
