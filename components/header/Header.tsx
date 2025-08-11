@@ -14,7 +14,7 @@ import CartModal from "@/components/cart/CartModal";
 import AuthModal from "@/components/auth/AuthModal";
 
 const Header = () => {
-  const { isSidebarOpen, handleOpenSidebar } = useSidebarContext();
+  const { handleOpenSidebar } = useSidebarContext();
   const [isAuthModalOpen, setIsAuthModalOpen] = useState<boolean>(false);
 
   const handleOpenAuthModal = () => setIsAuthModalOpen(true);
@@ -34,17 +34,15 @@ const Header = () => {
       >
         <div className="max-w-screen-2xl w-full h-16 px-4 md:px-8 xl:px-12 mx-auto">
           <div className="relative h-full flex items-center gap-4">
-            {!isSidebarOpen && (
-              <Button
-                size="icon"
-                variant="ghost"
-                aria-label="Open sidebar"
-                onClick={handleOpenSidebar}
-                className="w-10 h-10 shrink-0"
-              >
-                <MdMenu className="w-full h-full" />
-              </Button>
-            )}
+            <Button
+              size="icon"
+              variant="ghost"
+              aria-label="Open sidebar"
+              onClick={handleOpenSidebar}
+              className="w-10 h-10 shrink-0"
+            >
+              <MdMenu className="w-full h-full" />
+            </Button>
 
             <SearchProductWrapper />
 
