@@ -7,7 +7,9 @@ const ProductListSkeleton = () => {
   return (
     <Fragment>
       {Array.from({ length: PRODUCTS_PER_PAGE }).map((_, index) => (
-        <ProductCardSkeleton key={index} />
+        <li key={index} className="min-w-0 sm:aspect-square">
+          <ProductCardSkeleton />
+        </li>
       ))}
     </Fragment>
   );

@@ -22,7 +22,7 @@ const ProductList = () => {
     <div>
       <ul className="w-full grid sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4">
         {products?.map((product: ProductData) => (
-          <li key={product.id} className="min-w-0 max-w-full sm:aspect-square">
+          <li key={product.id} className="min-w-0 sm:aspect-square">
             <ProductCard product={product} />
           </li>
         ))}
