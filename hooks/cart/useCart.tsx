@@ -13,7 +13,7 @@ const useCart = () => {
   return {
     isLoading,
     isError,
-    isEmpty: !data?.cart?.items?.length || data.cart.items.length === 0,
+    isEmpty: data?.cart.items.length === 0,
     cart: data?.cart,
   };
 };

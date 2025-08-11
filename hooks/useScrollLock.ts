@@ -9,24 +9,24 @@ export const useScrollLock = (isOpen: boolean, isMounted: boolean) => {
       const scrollBarWidth = calculateScrollBarWidth();
 
       document.body.style.overflow = "hidden";
-      document.body.style.marginRight = `${scrollBarWidth}px`;
+      document.body.style.paddingRight = `${scrollBarWidth}px`;
 
       const header = document.getElementById("header-layout");
-      if (header) header.style.marginRight = `${scrollBarWidth / 2}px`;
+      if (header) header.style.paddingRight = `${scrollBarWidth}px`;
     } else {
       document.body.style.overflow = "unset";
-      document.body.style.marginRight = "";
+      document.body.style.paddingRight = "";
 
       const header = document.getElementById("header-layout");
-      if (header) header.style.marginRight = "";
+      if (header) header.style.paddingRight = "";
     }
 
     return () => {
       document.body.style.overflow = "unset";
-      document.body.style.marginRight = "";
+      document.body.style.paddingRight = "";
 
       const header = document.getElementById("header-layout");
-      if (header) header.style.marginRight = "";
+      if (header) header.style.paddingRight = "";
     };
   }, [isOpen, isMounted]);
 };

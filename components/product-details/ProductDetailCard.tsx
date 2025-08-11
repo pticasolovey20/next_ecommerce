@@ -9,7 +9,7 @@ interface ProductDetailsCardProps {
 
 const ProductDetailsCard = ({ productId }: ProductDetailsCardProps) => {
   return (
-    <div className="relative grid lg:grid-cols-2 gap-4 lg:gap-12 my-8">
+    <div className="relative grid lg:grid-cols-2 gap-4 lg:gap-12">
       <div className="lg:sticky top-24 h-fit">
         <ProductGallery key={productId} productId={productId} />
       </div>

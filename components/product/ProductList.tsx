@@ -2,15 +2,18 @@
 
 import { PRODUCTS_PER_PAGE } from "@/constants/product";
 import { useProducts } from "@/hooks/product/useProducts";
+import { Fragment } from "react";
 import { ProductData } from "@/types/product";
 
 import ProductListSkeleton from "@/components/product/ProductListSkeleton";
 import ProductCard from "@/components/product/ProductCard";
 import Button from "@/ui/Button";
+import EmptyList from "@/ui/EmptyList";
 
 const ProductList = () => {
   const {
     isLoading,
+    isEmpty,
     products,
 
     hasNextPage,
@@ -18,15 +21,21 @@ const ProductList = () => {
     isFetchingNextPage,
   } = useProducts(PRODUCTS_PER_PAGE);
 
+  if (isEmpty) {
+    return <EmptyList />;
+  }
+
   return (
-    <div>
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 mt-8">
+    <Fragment>
+      <ul className="w-full grid sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4">
         {products?.map((product: ProductData) => (
-          <ProductCard key={product.id} product={product} />
+          <li key={product.id} className="min-w-0 sm:aspect-square">
+            <ProductCard product={product} />
+          </li>
         ))}
 
         {(isFetchingNextPage || isLoading) && <ProductListSkeleton />}
-      </div>
+      </ul>
 
       {hasNextPage && (
         <div className="flex justify-center mt-8">
@@ -40,7 +49,7 @@ const ProductList = () => {
           </Button>
         </div>
       )}
-    </div>
+    </Fragment>
   );
 };
 

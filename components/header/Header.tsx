@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useSidebarContext } from "@/ui/sidebar/context";
+import { useAppSidebarStore } from "@/stores/useAppSidebarStore";
 import { useCartStore } from "@/stores/useCartStore";
 import { classNames } from "@/utils/classNames";
 
@@ -14,7 +14,7 @@ import CartModal from "@/components/cart/CartModal";
 import AuthModal from "@/components/auth/AuthModal";
 
 const Header = () => {
-  const { isSidebarOpen, handleOpenSidebar } = useSidebarContext();
+  const { openSidebar } = useAppSidebarStore();
   const [isAuthModalOpen, setIsAuthModalOpen] = useState<boolean>(false);
 
   const handleOpenAuthModal = () => setIsAuthModalOpen(true);
@@ -25,6 +25,7 @@ const Header = () => {
   return (
     <header className="w-full h-16">
       <div
+        id="header-layout"
         className={classNames(
           "w-full fixed top-0 left-0",
           "border-b border-gray-200/50",
@@ -32,18 +33,16 @@ const Header = () => {
         )}
       >
         <div className="max-w-screen-2xl w-full h-16 px-4 md:px-8 xl:px-12 mx-auto">
-          <div id="header-layout" className="relative h-full flex items-center gap-4">
-            {!isSidebarOpen && (
-              <Button
-                size="icon"
-                variant="ghost"
-                aria-label="Open sidebar"
-                onClick={handleOpenSidebar}
-                className="w-10 h-10 shrink-0"
-              >
-                <MdMenu className="w-full h-full" />
-              </Button>
-            )}
+          <div className="relative h-full flex items-center gap-4">
+            <Button
+              size="icon"
+              variant="ghost"
+              aria-label="Open sidebar"
+              onClick={openSidebar}
+              className="w-10 h-10 shrink-0"
+            >
+              <MdMenu className="w-full h-full" />
+            </Button>
 
             <SearchProductWrapper />
 

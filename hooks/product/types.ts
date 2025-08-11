@@ -5,6 +5,7 @@ import { UseFormReturn } from "react-hook-form";
 export interface UseProductsReturn {
   isLoading: boolean;
   isError: boolean;
+  isEmpty: boolean;
   products: ProductData[] | undefined;
 
   hasNextPage: boolean;

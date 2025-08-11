@@ -7,7 +7,7 @@ import Button from "@/ui/Button";
 
 const Cart = () => {
   const {
-    // isLoading,
+    isLoading,
     // isEmpty,
     // cart
   } = useCart();
@@ -20,7 +20,7 @@ const Cart = () => {
 
   return (
     <div className="relative">
-      <CartList />
+      <CartList isLoading={isLoading} isEmpty={isEmpty} list={cartList} />
 
       <div className="sticky -bottom-4 p-4 border-t border-gray-200 bg-muted">
         <div className="flex flex-col gap-4">

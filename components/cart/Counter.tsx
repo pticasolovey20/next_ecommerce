@@ -11,27 +11,27 @@ interface CounterProps {
 
 const Counter = ({ counterValue, onValueDecrease, onValueIncrease }: CounterProps) => {
   return (
-    <div className="flex items-center justify-center gap-2">
+    <div className="flex items-center justify-center rounded-md border border-gray-200 overflow-hidden">
       <Button
         size="icon"
         variant="ghost"
         aria-label="Decrease value"
         onClick={onValueDecrease}
-        className="w-full h-9 p-2"
+        className="w-7 h-6 p-1 rounded-none"
       >
         <FiMinus className="w-full h-full" />
       </Button>
 
-      <span className="w-12 shrink-0 flex items-center justify-center py-2 px-4 rounded-lg border border-gray-300/50">
+      <div className="w-10 h-6 flex items-center justify-center px-1 border-r border-l border-gray-200">
         {counterValue}
-      </span>
+      </div>
 
       <Button
         size="icon"
         variant="ghost"
         aria-label="Increase value"
         onClick={onValueIncrease}
-        className="w-full h-9 p-2"
+        className="w-7 h-6 p-1 rounded-none"
       >
         <FiPlus className="w-full h-full" />
       </Button>

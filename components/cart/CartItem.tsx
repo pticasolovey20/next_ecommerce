@@ -21,34 +21,28 @@ const CartItem = ({ product }: CartItemProps) => {
   const decrementQuantity = useCartStore((state) => state.decrementQuantity);
 
   return (
-    <CardContainer className="relative min-h-[250px] sm:max-h-[300px] h-full flex flex-col p-0 rounded-lg">
+    <CardContainer className="relative h-full flex flex-col p-0 rounded-lg">
       <ProductImage
         fill
         priority
         quality={75}
         src={product.assets[0].src}
         alt={product.assets[0].alt}
-        containerClassName="shrink-0 h-50 sm:h-40"
+        containerClassName="shrink-0 h-50 sm:flex-1"
       />
 
-      <div className="relative w-full w-full flex-1 flex flex-col p-2 overflow-hidden">
-        <span className="text-xl truncate">{product.title}</span>
+      <div className="relative w-full flex flex-col gap-2 p-3 overflow-hidden">
+        <span className="text-lg truncate">{product.title}</span>
 
-        <div className="flex-1 flex flex-col">
-          {product.oldPrice && (
-            <span className="text-muted-foreground font-medium line-through">
-              ${product.oldPrice}
-            </span>
-          )}
-
+        <div className="flex-1 flex justify-between">
           <span className="text-foreground text-lg font-semibold">${product.price}</span>
-        </div>
 
-        <Counter
-          counterValue={quantity}
-          onValueDecrease={() => decrementQuantity(product.id)}
-          onValueIncrease={() => incrementQuantity(product.id)}
-        />
+          <Counter
+            counterValue={quantity}
+            onValueDecrease={() => decrementQuantity(product.id)}
+            onValueIncrease={() => incrementQuantity(product.id)}
+          />
+        </div>
       </div>
 
       <Button

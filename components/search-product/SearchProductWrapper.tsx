@@ -3,7 +3,8 @@ import { FormProvider } from "react-hook-form";
 import { classNames } from "@/utils/classNames";
 
 import SearchProductForm from "@/components/form/SearchProductForm";
-import LoadingSpinner from "@/ui/LoadingSpinner";
+import Loader from "@/ui/Loader";
+
 import SearchProductList from "@/components/search-product/SearchProductList";
 import EmptyList from "@/ui/EmptyList";
 
@@ -49,15 +50,15 @@ const SearchProductWrapper = () => {
         <div
           className={classNames(
             "absolute top-7 md:top-12 flex w-full max-h-[calc(100dvh-80px)]",
-            "p-2 rounded-lg shadow-lg shadow-black/50 bg-white z-[30]"
+            "rounded-lg shadow-lg shadow-black/50 bg-white z-[30]"
           )}
         >
           {isLoading ? (
-            <LoadingSpinner containerClassName="py-4" />
+            <Loader className="h-[300px]" />
           ) : products?.length ? (
             <SearchProductList products={products} onSelect={handleSelectProduct} />
           ) : (
-            <EmptyList containerClassName="py-4" />
+            <EmptyList className="h-[300px]" />
           )}
         </div>
       )}
