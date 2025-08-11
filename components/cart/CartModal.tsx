@@ -1,6 +1,5 @@
 import { useCartStore } from "@/stores/useCartStore";
 
-// import { ModalRoot, ModalHeader, ModalContent } from "@/ui/modal";
 import { ModalRoot, ModalHeader, ModalContent } from "@/ui/modal";
 import Cart from "@/components/cart/Cart";
 
@@ -10,12 +9,12 @@ const CartModal = () => {
 
   return (
     <ModalRoot
-      isModalOpen={isCartOpen}
-      handleCloseModal={closeCart}
+      isOpen={isCartOpen}
+      onClose={closeCart}
       maxWidth="sm:max-w-[600px] lg:max-w-[800px]"
       className="pb-4"
     >
-      <ModalHeader title="cart" handleCloseModal={closeCart} />
+      <ModalHeader title="cart" onClose={closeCart} />
 
       <ModalContent>
         <Cart />

@@ -8,12 +8,8 @@ interface AuthModalProps {
 
 const AuthModal = ({ isModalOpen, handleCloseModal }: AuthModalProps) => {
   return (
-    <ModalRoot
-      isModalOpen={isModalOpen}
-      handleCloseModal={handleCloseModal}
-      maxWidth="sm:max-w-[400px]"
-    >
-      <ModalHeader title="auth" handleCloseModal={handleCloseModal} />
+    <ModalRoot isOpen={isModalOpen} onClose={handleCloseModal} maxWidth="sm:max-w-[400px]">
+      <ModalHeader title="auth" onClose={handleCloseModal} />
 
       <ModalContent>
         <div className="flex flex-col gap-4 p-4">

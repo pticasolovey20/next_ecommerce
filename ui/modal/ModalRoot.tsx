@@ -7,42 +7,36 @@ import { createPortal } from "react-dom";
 import { classNames } from "@/utils/classNames";
 
 interface ModalRootProps {
-  isModalOpen: boolean;
-  handleCloseModal: () => void;
+  isOpen: boolean;
+  onClose: () => void;
   maxWidth?: string;
   className?: string;
   children: ReactNode;
 }
 
-const ModalRoot = ({
-  isModalOpen,
-  handleCloseModal,
-  maxWidth,
-  className,
-  children,
-}: ModalRootProps) => {
+const ModalRoot = ({ isOpen, onClose, maxWidth, className, children }: ModalRootProps) => {
   const isMounted = useIsMounted();
 
-  useScrollLock(isModalOpen, isMounted);
+  useScrollLock(isOpen, isMounted);
 
   useEffect(() => {
     if (!isMounted) return;
 
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape" && isModalOpen) {
-        handleCloseModal();
+      if (event.key === "Escape" && isOpen) {
+        onClose();
       }
     };
 
-    if (isModalOpen) document.addEventListener("keydown", handleKeyDown);
+    if (isOpen) document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [isModalOpen, handleCloseModal, isMounted]);
+  }, [isOpen, onClose, isMounted]);
 
-  if (!isMounted || !isModalOpen) return null;
+  if (!isMounted || !isOpen) return null;
 
   return createPortal(
     <div
-      onClick={handleCloseModal}
+      onClick={onClose}
       className={classNames(
         "fixed inset-0",
         "flex items-center justify-center",

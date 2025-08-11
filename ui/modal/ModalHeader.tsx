@@ -3,10 +3,10 @@ import { MdClose } from "react-icons/md";
 
 interface ModalHeaderProps {
   title: string;
-  handleCloseModal: () => void;
+  onClose: () => void;
 }
 
-const ModalHeader = ({ title, handleCloseModal }: ModalHeaderProps) => {
+const ModalHeader = ({ title, onClose }: ModalHeaderProps) => {
   return (
     <div className="flex justify-between p-4 border-b border-gray-200">
       <h2
@@ -16,7 +16,7 @@ const ModalHeader = ({ title, handleCloseModal }: ModalHeaderProps) => {
         {title}
       </h2>
 
-      <Button size="icon" variant="ghost" onClick={handleCloseModal}>
+      <Button size="icon" variant="ghost" onClick={onClose}>
         <MdClose className="w-6 h-6" />
       </Button>
     </div>
