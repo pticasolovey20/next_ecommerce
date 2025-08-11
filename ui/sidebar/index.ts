@@ -1,4 +1,5 @@
-import SidebarProvider from "@/ui/sidebar/SidebarProvider";
 import SidebarRoot from "@/ui/sidebar/SidebarRoot";
+import SidebarHeader from "@/ui/sidebar/SidebarHeader";
+import SidebarContent from "@/ui/sidebar/SidebarContent";
 
-export { SidebarProvider, SidebarRoot };
+export { SidebarRoot, SidebarHeader, SidebarContent };

@@ -5,10 +5,11 @@ import FooterLinks from "@/components/footer/FooterLinks";
 
 interface FooterSectionProps {
   section: FooterSectionData;
+  index?: number;
 }
 
-const FooterSection = ({ section }: FooterSectionProps) => {
-  const isOddSection = section.index % 2 === 0;
+const FooterSection = ({ section, index }: FooterSectionProps) => {
+  const isOddSection = index ? index % 2 === 0 : true;
 
   const alignmentClassName = isOddSection
     ? "items-start"

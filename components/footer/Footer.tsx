@@ -22,10 +22,10 @@ const Footer = () => {
             "py-8"
           )}
         >
-          <FooterSection section={COMPANY_SECTION} />
-          <FooterSection section={SERVICES_SECTION} />
-          <FooterSection section={SOCIAL_SECTION} />
-          <FooterSection section={LEGAL_SECTION} />
+          <FooterSection section={COMPANY_SECTION} index={1} />
+          <FooterSection section={SERVICES_SECTION} index={2} />
+          <FooterSection section={SOCIAL_SECTION} index={3} />
+          <FooterSection section={LEGAL_SECTION} index={4} />
         </div>
 
         <Separator />

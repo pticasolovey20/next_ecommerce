@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useSidebarContext } from "@/ui/sidebar/context";
+import { useAppSidebarStore } from "@/stores/useAppSidebarStore";
 import { useCartStore } from "@/stores/useCartStore";
 import { classNames } from "@/utils/classNames";
 
@@ -14,7 +14,7 @@ import CartModal from "@/components/cart/CartModal";
 import AuthModal from "@/components/auth/AuthModal";
 
 const Header = () => {
-  const { handleOpenSidebar } = useSidebarContext();
+  const { openSidebar } = useAppSidebarStore();
   const [isAuthModalOpen, setIsAuthModalOpen] = useState<boolean>(false);
 
   const handleOpenAuthModal = () => setIsAuthModalOpen(true);
@@ -38,7 +38,7 @@ const Header = () => {
               size="icon"
               variant="ghost"
               aria-label="Open sidebar"
-              onClick={handleOpenSidebar}
+              onClick={openSidebar}
               className="w-10 h-10 shrink-0"
             >
               <MdMenu className="w-full h-full" />

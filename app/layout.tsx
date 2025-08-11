@@ -8,7 +8,6 @@ import { classNames } from "@/utils/classNames";
 import QueryProvider from "@/components/QueryProvider";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
-import { SidebarProvider } from "@/ui/sidebar";
 import Header from "@/components/header/Header";
 import AppSidebar from "@/components/AppSidebar";
 import Footer from "@/components/footer/Footer";
@@ -41,23 +40,21 @@ const RootLayout = ({ children }: RootLayoutProps) => {
         <QueryProvider>
           <ReactQueryDevtools initialIsOpen={false} />
 
-          <SidebarProvider>
-            <Header />
-            <AppSidebar />
+          <Header />
+          <AppSidebar />
 
-            <main
-              className={classNames(
-                "min-h-[calc(100dvh-64px)] h-full",
-                "max-w-screen-2xl w-full",
-                "flex flex-col",
-                "px-4 md:px-8 xl:px-12 mx-auto"
-              )}
-            >
-              {children}
-            </main>
+          <main
+            className={classNames(
+              "min-h-[calc(100dvh-64px)] h-full",
+              "max-w-screen-2xl w-full",
+              "flex flex-col",
+              "px-4 md:px-8 xl:px-12 mx-auto"
+            )}
+          >
+            {children}
+          </main>
 
-            <Footer />
-          </SidebarProvider>
+          <Footer />
         </QueryProvider>
       </body>
     </html>
