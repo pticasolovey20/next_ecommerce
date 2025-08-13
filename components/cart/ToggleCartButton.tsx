@@ -6,12 +6,14 @@ import { classNames } from "@/utils/classNames";
 
 import Button from "@/ui/Button";
 import { HiShoppingCart } from "react-icons/hi";
+import { useCartStatus } from "@/hooks/cart/useCartStatus";
 
 interface ToggleCartButtonProps {
   product: ProductData;
 }
 
 const ToggleCartButton = ({ product }: ToggleCartButtonProps) => {
+  const { isInCart } = useCartStatus(product.id);
   const { addProduct } = useAddProductToCart();
   const { removeProduct } = useRemoveProductFromCart();
 
@@ -19,8 +21,6 @@ const ToggleCartButton = ({ product }: ToggleCartButtonProps) => {
   const handleRemove = () => removeProduct(product.id);
 
   const toggle = () => (!isInCart ? handleAdd() : handleRemove());
-
-  const isInCart = false;
 
   return (
     <Button
