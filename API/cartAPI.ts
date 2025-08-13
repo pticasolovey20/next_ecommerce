@@ -12,3 +12,13 @@ export const fetchAddProductToCart = async (productId: string): Promise<CartResp
 
   return data;
 };
+
+export const fetchRemoveProductFromCart = async (productId: string): Promise<CartResponseData> => {
+  const { data } = await axiosInstance.delete<CartResponseData>("/api/cart", {
+    data: {
+      productId,
+    },
+  });
+
+  return data;
+};

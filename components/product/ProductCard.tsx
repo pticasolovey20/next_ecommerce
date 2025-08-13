@@ -4,10 +4,10 @@ import { classNames } from "@/utils/classNames";
 import CardContainer from "@/components/card/CardConainer";
 import Link from "next/link";
 import ProductImage from "@/components/product/ProductImage";
+import ProductPrice from "@/components/product/ProductPrice";
 import Button from "@/ui/Button";
 import { FaHeart } from "react-icons/fa";
 import ToggleCartButton from "@/components/cart/ToggleCartButton";
-import ProductPrice from "./ProductPrice";
 
 interface ProductCardProps {
   product: ProductData;
@@ -58,6 +58,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
       >
         <FaHeart className="w-full h-full" />
       </Button>
+
       <ToggleCartButton product={product} />
     </CardContainer>
   );

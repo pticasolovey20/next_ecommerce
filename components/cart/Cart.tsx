@@ -1,4 +1,4 @@
-import useCart from "@/hooks/cart/useCart";
+import { useCart } from "@/hooks/cart/useCart";
 import { useCartStore } from "@/stores/useCartStore";
 import { classNames } from "@/utils/classNames";
 
@@ -7,9 +7,6 @@ import Button from "@/ui/Button";
 
 const Cart = () => {
   const { isLoading, isEmpty, items } = useCart();
-
-  // const cartList = useCartStore((state) => state.cartList);
-  // const isEmpty = cartList.length <= 0;
 
   const getTotalPrice = useCartStore((state) => state.getTotalPrice);
   const closeCart = useCartStore((state) => state.closeCart);

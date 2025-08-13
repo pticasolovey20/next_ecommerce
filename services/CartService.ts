@@ -88,6 +88,35 @@ class CartService {
       throw error instanceof Error ? error : new Error("Failed to add the product");
     }
   }
+
+  async removeProductFromCart(sessionId: string, cartId: string, productId: string) {
+    try {
+      await this.prismaClient.cartItem.delete({
+        where: {
+          cartId_productId: {
+            cartId: cartId,
+            productId: productId,
+          },
+        },
+      });
+
+      const updatedCart = await this.prismaClient.cart.findUnique({
+        where: { sessionId },
+
+        include: {
+          items: {
+            include: { product: true },
+            orderBy: { createdAt: "desc" },
+          },
+        },
+      });
+
+      return updatedCart;
+    } catch (error) {
+      console.error(`Error removing product ${productId} from cart ${cartId}:`, error);
+      throw error instanceof Error ? error : new Error("Failed to remove the product");
+    }
+  }
 }
 
 export const cartService = new CartService(prismaClient);

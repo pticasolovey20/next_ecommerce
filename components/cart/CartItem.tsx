@@ -1,4 +1,5 @@
 import { CartItemData } from "@/types/cart";
+import { useRemoveProductFromCart } from "@/hooks/cart/useRemoveProductFromCart";
 import { useCartStore } from "@/stores/useCartStore";
 
 import CardContainer from "@/components/card/CardConainer";
@@ -12,7 +13,9 @@ interface CartItemProps {
 }
 
 const CartItem = ({ item }: CartItemProps) => {
-  const removeProduct = useCartStore((state) => state.removeProduct);
+  const { removeProduct } = useRemoveProductFromCart();
+
+  const handleRemove = () => removeProduct(item.productId);
 
   const incrementQuantity = useCartStore((state) => state.incrementQuantity);
   const decrementQuantity = useCartStore((state) => state.decrementQuantity);
@@ -46,7 +49,7 @@ const CartItem = ({ item }: CartItemProps) => {
         variant="ghost"
         aria-label="Remove product from cart"
         className="absolute top-2 right-2 shrink-0 w-9 h-9 p-2 text-red-500 hover:text-red-500"
-        onClick={() => removeProduct(item.product.id)}
+        onClick={handleRemove}
       >
         <BiTrash className="w-full h-full" />
       </Button>
