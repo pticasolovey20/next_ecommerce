@@ -21,9 +21,9 @@ const CartList = ({ isLoading, isEmpty, list }: CartListProps) => {
 
   return (
     <ul className="w-full grid sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
-      {list!.map((product, index) => (
+      {list?.map((item, index) => (
         <li key={index} className="sm:aspect-square">
-          <CartItem product={product} />
+          <CartItem item={item} />
         </li>
       ))}
     </ul>

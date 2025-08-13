@@ -6,21 +6,17 @@ import CartList from "@/components/cart/CartList";
 import Button from "@/ui/Button";
 
 const Cart = () => {
-  const {
-    isLoading,
-    // isEmpty,
-    // cart
-  } = useCart();
+  const { isLoading, isEmpty, items } = useCart();
 
-  const cartList = useCartStore((state) => state.cartList);
+  // const cartList = useCartStore((state) => state.cartList);
+  // const isEmpty = cartList.length <= 0;
+
   const getTotalPrice = useCartStore((state) => state.getTotalPrice);
   const closeCart = useCartStore((state) => state.closeCart);
 
-  const isEmpty = cartList.length <= 0;
-
   return (
     <div className="relative">
-      <CartList isLoading={isLoading} isEmpty={isEmpty} list={cartList} />
+      <CartList isLoading={isLoading} isEmpty={isEmpty} list={items} />
 
       <div className="sticky -bottom-4 p-4 border-t border-gray-200 bg-muted">
         <div className="flex flex-col gap-4">

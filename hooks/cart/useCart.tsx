@@ -5,16 +5,17 @@ import { fetchCart } from "@/API/cartAPI";
 const useCart = () => {
   const { isLoading, isError, data } = useQuery({
     queryKey: [CART_QUERY_KEY],
-    queryFn: () => fetchCart(),
-    staleTime: 5 * 60 * 1000,
+    queryFn: fetchCart,
+    staleTime: 30 * 60 * 1000,
+    select: (data) => data.cart,
     retry: 1,
   });
 
   return {
     isLoading,
     isError,
-    isEmpty: data?.cart.items.length === 0,
-    cart: data?.cart,
+    isEmpty: data?.items?.length === 0,
+    items: data?.items,
   };
 };
 
