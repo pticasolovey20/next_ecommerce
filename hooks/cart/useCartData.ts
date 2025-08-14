@@ -30,8 +30,11 @@ export const useCartData = (productId?: string) => {
   return {
     isLoading: cartQuery.isFetching || isMutating > 0,
     isError: cartQuery.isError,
+
     isEmpty: cartQuery.data?.items?.length === 0,
     items: cartQuery.data?.items,
+    totalItemsCount: cartQuery.data?.items.length,
+
     isInCart,
     totalPrice,
 
