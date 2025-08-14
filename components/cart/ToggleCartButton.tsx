@@ -13,13 +13,13 @@ const ToggleCartButton = ({ product }: ToggleCartButtonProps) => {
   const { isInCart, addItem, deleteItem } = useCartData(product.id);
 
   const handleAdd = () => addItem(product);
-  const deleteRemove = () => deleteItem(product.id);
+  const handleDelete = () => deleteItem(product.id);
 
   const toggle = () => {
-    if (!isInCart) {
-      handleAdd();
+    if (isInCart) {
+      handleDelete();
     } else {
-      deleteRemove();
+      handleAdd();
     }
   };
 
