@@ -36,6 +36,7 @@ const CartItem = ({ item }: CartItemProps) => {
           <span className="text-foreground text-lg font-semibold">${item.product.price}</span>
 
           <CartItemCounter
+            key={item.productId}
             initialValue={item.quantity}
             productId={item.productId}
             onValueChange={updateItemQuantity}
