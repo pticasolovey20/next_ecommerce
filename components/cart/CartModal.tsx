@@ -17,7 +17,7 @@ const CartModal = () => {
       <ModalHeader title="cart" onClose={closeCart} />
 
       <ModalContent>
-        <Cart />
+        <Cart onClose={closeCart} />
       </ModalContent>
     </ModalRoot>
   );

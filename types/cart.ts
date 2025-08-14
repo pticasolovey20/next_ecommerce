@@ -21,4 +21,10 @@ export interface CartData {
 export interface CartResponseData {
   success: boolean;
   cart: CartData;
+  message?: string;
+}
+
+export interface CartItemMutationValue {
+  productId: string;
+  quantity: number;
 }

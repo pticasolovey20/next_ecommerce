@@ -1,13 +1,14 @@
 import { useQueryClient, useMutation } from "@tanstack/react-query";
-import { fetchRemoveProductFromCart } from "@/API/cartAPI";
 import { CART_QUERY_KEY } from "@/constants/cart";
+import { fetchRemoveCartItem } from "@/API/cartAPI";
 import { CartResponseData } from "@/types/cart";
 
-export const useRemoveProductFromCart = () => {
+export const useDeleteCartItem = () => {
   const queryClient = useQueryClient();
 
-  const removeProductMutation = useMutation({
-    mutationFn: (productId: string) => fetchRemoveProductFromCart(productId),
+  const mutation = useMutation({
+    mutationKey: [CART_QUERY_KEY, "delete"],
+    mutationFn: (productId: string) => fetchRemoveCartItem(productId),
 
     onMutate: async (productId) => {
       await queryClient.cancelQueries({ queryKey: [CART_QUERY_KEY] });
@@ -25,7 +26,10 @@ export const useRemoveProductFromCart = () => {
         };
       });
 
-      return { previousData, productId };
+      return {
+        previousData,
+        productId,
+      };
     },
 
     onError: (_error, _variables, context) => {
@@ -37,7 +41,5 @@ export const useRemoveProductFromCart = () => {
     onSettled: () => queryClient.invalidateQueries({ queryKey: [CART_QUERY_KEY] }),
   });
 
-  return {
-    removeProduct: removeProductMutation.mutate,
-  };
+  return mutation;
 };

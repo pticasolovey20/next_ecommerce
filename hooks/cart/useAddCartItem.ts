@@ -1,15 +1,15 @@
 import { useQueryClient, useMutation } from "@tanstack/react-query";
-import { ProductData } from "@/types/product";
-import { fetchAddProductToCart } from "@/API/cartAPI";
 import { CART_QUERY_KEY } from "@/constants/cart";
-
+import { ProductData } from "@/types/product";
+import { fetchAddCartItem } from "@/API/cartAPI";
 import { CartResponseData } from "@/types/cart";
 
-export const useAddProductToCart = () => {
+export const useAddCartItem = () => {
   const queryClient = useQueryClient();
 
-  const addProductMutation = useMutation({
-    mutationFn: (product: ProductData) => fetchAddProductToCart(product.id),
+  const mutation = useMutation({
+    mutationKey: [CART_QUERY_KEY, "add"],
+    mutationFn: (product: ProductData) => fetchAddCartItem(product.id),
 
     onMutate: async (product) => {
       await queryClient.cancelQueries({ queryKey: [CART_QUERY_KEY] });
@@ -42,7 +42,10 @@ export const useAddProductToCart = () => {
         };
       });
 
-      return { previousData, optimisticCartItem };
+      return {
+        previousData,
+        optimisticCartItem,
+      };
     },
 
     onError: (_error, _variables, context) => {
@@ -66,7 +69,5 @@ export const useAddProductToCart = () => {
     onSettled: () => queryClient.invalidateQueries({ queryKey: [CART_QUERY_KEY] }),
   });
 
-  return {
-    addProduct: addProductMutation.mutate,
-  };
+  return mutation;
 };

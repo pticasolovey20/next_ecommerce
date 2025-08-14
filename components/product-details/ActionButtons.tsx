@@ -1,5 +1,5 @@
 import { ProductData } from "@/types/product";
-import { useCartStore } from "@/stores/useCartStore";
+import { useCartData } from "@/hooks/cart/useCartData";
 
 import Button from "@/ui/Button";
 
@@ -8,7 +8,9 @@ interface ActionButtonsProps {
 }
 
 const ActionButtons = ({ product }: ActionButtonsProps) => {
-  const addProduct = useCartStore((state) => state.addProduct);
+  const { addItem } = useCartData();
+
+  const handleAdd = () => addItem(product);
 
   return (
     <div className="flex flex-col sm:flex-row gap-4">
@@ -20,7 +22,7 @@ const ActionButtons = ({ product }: ActionButtonsProps) => {
         size="lg"
         variant="secondary"
         className="w-full hover-lift font-semibold uppercase"
-        onClick={() => addProduct(product)}
+        onClick={handleAdd}
       >
         add to cart
       </Button>
