@@ -1,31 +1,34 @@
 import { ProductData } from "@/types/product";
-import { useCartStore } from "@/stores/useCartStore";
+import { useCartData } from "@/hooks/cart/useCartData";
 import { classNames } from "@/utils/classNames";
 
 import Button from "@/ui/Button";
 import { HiShoppingCart } from "react-icons/hi";
-import { useMemo } from "react";
 
 interface ToggleCartButtonProps {
   product: ProductData;
 }
 
 const ToggleCartButton = ({ product }: ToggleCartButtonProps) => {
-  const cartList = useCartStore((state) => state.cartList);
+  const { isInCart, addItem, deleteItem } = useCartData(product.id);
 
-  const isInCart = useMemo(() => {
-    return cartList.find(({ id }) => id === product.id);
-  }, [cartList, product.id]);
+  const handleAdd = () => addItem(product);
+  const handleDelete = () => deleteItem(product.id);
 
-  const addProduct = useCartStore((state) => state.addProduct);
-  const removeProduct = useCartStore((state) => state.removeProduct);
+  const toggle = () => {
+    if (isInCart) {
+      handleDelete();
+    } else {
+      handleAdd();
+    }
+  };
 
   return (
     <Button
       size="icon"
       variant="ghost"
       aria-label={`${isInCart ? "remove from" : "Add to"} cart`}
-      onClick={() => (!isInCart ? addProduct(product) : removeProduct(product.id))}
+      onClick={toggle}
       className={classNames(
         "absolute bottom-3 right-4 w-9 h-9 hover:text-green-500",
         isInCart ? "text-green-500" : ""

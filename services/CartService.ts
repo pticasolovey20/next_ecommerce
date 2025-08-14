@@ -11,40 +11,184 @@ class CartService {
   async getCart(sessionId: string) {
     try {
       const cart = await this.prismaClient.cart.findUnique({
-        where: { sessionId },
+        where: {
+          sessionId,
+        },
+
         include: {
           items: {
-            orderBy: {
-              createdAt: "desc",
-            },
+            include: { product: true },
+            orderBy: { createdAt: "desc" },
           },
         },
       });
 
       return cart;
     } catch (error) {
-      console.error(`Error fetching cart for session ${sessionId}:`, error);
-      throw new Error("Failed to fetch cart");
+      console.error(`Error fetching cart, session ${sessionId}:`, error);
+      throw error instanceof Error ? error : new Error("Failed to fetch cart");
     }
   }
 
   async createCart(sessionId: string) {
     try {
       const cart = await this.prismaClient.cart.create({
-        data: { sessionId },
+        data: {
+          sessionId,
+        },
+
         include: {
           items: {
-            orderBy: {
-              createdAt: "desc",
-            },
+            include: { product: true },
+            orderBy: { createdAt: "desc" },
           },
         },
       });
 
       return cart;
     } catch (error) {
-      console.error(`Error creating cart for session ${sessionId}:`, error);
-      throw new Error("Failed to create cart");
+      console.error(`Error creating cart, session ${sessionId}:`, error);
+      throw error instanceof Error ? error : new Error("Failed to create cart");
+    }
+  }
+
+  async addProductToCart(sessionId: string, cartId: string, productId: string) {
+    try {
+      await this.prismaClient.cartItem.upsert({
+        where: {
+          cartId_productId: {
+            cartId: cartId,
+            productId: productId,
+          },
+        },
+
+        create: {
+          cartId: cartId,
+          productId: productId,
+          quantity: 1,
+        },
+
+        update: {
+          quantity: {
+            increment: 1,
+          },
+        },
+
+        include: {
+          product: true,
+        },
+      });
+
+      const updatedCart = await this.prismaClient.cart.findUnique({
+        where: {
+          sessionId,
+        },
+
+        include: {
+          items: {
+            include: { product: true },
+            orderBy: { createdAt: "desc" },
+          },
+        },
+      });
+
+      return updatedCart;
+    } catch (error) {
+      console.error(`Error adding ${productId}, cart ${sessionId}:`, error);
+      throw error instanceof Error ? error : new Error("Failed to add the product");
+    }
+  }
+
+  async removeProductFromCart(sessionId: string, cartId: string, productId: string) {
+    try {
+      await this.prismaClient.cartItem.delete({
+        where: {
+          cartId_productId: {
+            cartId: cartId,
+            productId: productId,
+          },
+        },
+      });
+
+      const updatedCart = await this.prismaClient.cart.findUnique({
+        where: {
+          sessionId,
+        },
+
+        include: {
+          items: {
+            include: { product: true },
+            orderBy: { createdAt: "desc" },
+          },
+        },
+      });
+
+      return updatedCart;
+    } catch (error) {
+      console.error(`Error removing ${productId}, cart ${cartId}:`, error);
+      throw error instanceof Error ? error : new Error("Failed to remove the product");
+    }
+  }
+
+  async updateProductQuantity(
+    sessionId: string,
+    cartId: string,
+    productId: string,
+    quantity: number
+  ) {
+    try {
+      if (quantity <= 0) {
+        await this.prismaClient.cartItem.delete({
+          where: {
+            cartId_productId: {
+              cartId: cartId,
+              productId: productId,
+            },
+          },
+        });
+      } else {
+        const existingItem = await this.prismaClient.cartItem.findUnique({
+          where: {
+            cartId_productId: {
+              cartId: cartId,
+              productId: productId,
+            },
+          },
+        });
+
+        if (!existingItem) throw new Error("Product not found in cart");
+
+        await this.prismaClient.cartItem.update({
+          where: {
+            cartId_productId: {
+              cartId: cartId,
+              productId: productId,
+            },
+          },
+
+          data: {
+            quantity: quantity,
+          },
+        });
+      }
+
+      const updatedCart = await this.prismaClient.cart.findUnique({
+        where: {
+          sessionId,
+        },
+
+        include: {
+          items: {
+            include: { product: true },
+            orderBy: { createdAt: "desc" },
+          },
+        },
+      });
+
+      return updatedCart;
+    } catch (error) {
+      console.error(`Error updating ${productId} quantity to ${quantity}, cart ${cartId}:`, error);
+      throw error instanceof Error ? error : new Error("Failed to update product quantity");
     }
   }
 }

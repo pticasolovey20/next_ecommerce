@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useAppSidebarStore } from "@/stores/useAppSidebarStore";
 import { useCartStore } from "@/stores/useCartStore";
+import { useCartData } from "@/hooks/cart/useCartData";
 import { classNames } from "@/utils/classNames";
 
 import Button from "@/ui/Button";
@@ -20,6 +21,7 @@ const Header = () => {
   const handleOpenAuthModal = () => setIsAuthModalOpen(true);
   const handleCloseAuthModal = () => setIsAuthModalOpen(false);
 
+  const { totalItemsCount } = useCartData();
   const openCart = useCartStore((state) => state.openCart);
 
   return (
@@ -65,15 +67,30 @@ const Header = () => {
               <MdFavorite className="w-full h-full" />
             </Button>
 
-            <Button
-              size="icon"
-              variant="ghost"
-              aria-label="Open cart"
-              onClick={openCart}
-              className="w-10 h-10 hover-lift hidden sm:inline-flex shrink-0"
-            >
-              <HiShoppingCart className="w-full h-full" />
-            </Button>
+            <div className="relative hidden sm:block hover-lift">
+              {!!totalItemsCount && (
+                <div
+                  className={classNames(
+                    "absolute -top-1 -right-1 w-5 h-5",
+                    "flex items-center justify-center",
+                    "p-1 rounded-full border border-green-500",
+                    "bg-green-300 z-[20]"
+                  )}
+                >
+                  <span className="font-semibold">{totalItemsCount}</span>
+                </div>
+              )}
+
+              <Button
+                size="icon"
+                variant="ghost"
+                aria-label="Open cart"
+                onClick={openCart}
+                className="w-10 h-10 shrink-0"
+              >
+                <HiShoppingCart className="w-full h-full" />
+              </Button>
+            </div>
           </div>
         </div>
       </div>
