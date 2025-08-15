@@ -9,7 +9,6 @@ import {
   BreadcrumbsSeparator,
 } from "@/ui/breadcrumbs/index";
 import { MdChevronRight } from "react-icons/md";
-import { Fragment } from "react";
 
 const ProductsBreadcrumbs = () => {
   const { list } = useProductBreadcrumbs();
@@ -21,13 +20,13 @@ const ProductsBreadcrumbs = () => {
           const isLast = index === list.length - 1;
 
           return (
-            <Fragment key={index}>
+            <li key={index} className="flex items-center gap-2">
               <BreadcrumbsItem href={href} isActive={isActive} className={isLast ? "truncate" : ""}>
                 {label}
               </BreadcrumbsItem>
 
               {!isLast && <BreadcrumbsSeparator />}
-            </Fragment>
+            </li>
           );
         })}
       </BreadcrumbsList>
