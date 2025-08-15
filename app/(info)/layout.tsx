@@ -1,11 +1,11 @@
-import { ReactNode, Fragment } from "react";
+import { ReactNode } from "react";
 
 interface InfoLayoutProps {
   children: ReactNode;
 }
 
 const InfoLayout = ({ children }: InfoLayoutProps) => {
-  return <Fragment>{children}</Fragment>;
+  return <main className="p-4">{children}</main>;
 };
 
 export default InfoLayout;

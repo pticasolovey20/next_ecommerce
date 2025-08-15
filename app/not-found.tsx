@@ -1,12 +1,10 @@
-import { Fragment } from "react";
-
 const NotFoundPage = () => {
   return (
-    <Fragment>
+    <main className="p-4">
       <div>
         <span className="text-4xl font-semibold">NOT FOUND</span>
       </div>
-    </Fragment>
+    </main>
   );
 };
 

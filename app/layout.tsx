@@ -30,16 +30,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
           "bg-gradient-to-br from-gray-50 to-gray-100"
         )}
       >
-        <main
-          className={classNames(
-            "min-h-[calc(100dvh-64px)] h-full",
-            "max-w-screen-2xl w-full",
-            "flex flex-col",
-            "px-4 lg:px-8 xl:px-12 mx-auto"
-          )}
-        >
-          {children}
-        </main>
+        {children}
       </body>
     </html>
   );

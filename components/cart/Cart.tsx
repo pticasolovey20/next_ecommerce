@@ -45,7 +45,7 @@ const Cart = ({ onClose }: CartProps) => {
       </div>
 
       <div className="px-4 bg-muted">
-        <Banner className="rounded-xl" />
+        <Banner className="rounded-xl shadow-none" />
       </div>
     </div>
   );
