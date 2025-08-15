@@ -2,13 +2,18 @@ import { classNames } from "@/utils/classNames";
 
 import Button from "@/ui/Button";
 
-const Banner = () => {
+interface BannerProps {
+  className?: string;
+}
+
+const Banner = ({ className }: BannerProps) => {
   return (
     <div
       className={classNames(
-        "relative p-8 my-4 overflow-hidden",
+        "relative p-8 overflow-hidden",
         "bg-gradient-to-r from-gray-800 to-gray-900",
-        "border border-gray-700/50 rounded-3xl shadow-lg"
+        "border border-gray-700/50 rounded-3xl shadow-lg",
+        className
       )}
     >
       <div className="absolute inset-0 bg-gradient-to-r from-white/5 to-transparent" />

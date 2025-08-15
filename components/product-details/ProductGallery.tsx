@@ -49,7 +49,7 @@ const ProductGallery = ({ productId }: ProductGalleryProps) => {
         quality={100}
         src={selectedAsset?.src || ""}
         alt={selectedAsset?.alt || ""}
-        sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
+        sizes="(min-width: 1024px) 50vw, 100vw"
         containerClassName="h-60 sm:h-96 shadow-xl rounded-xl hover-lift"
       />
 
@@ -84,7 +84,7 @@ const ProductGallery = ({ productId }: ProductGalleryProps) => {
                 loading="lazy"
                 src={src}
                 alt={alt}
-                sizes="(min-width: 1024px) 25vw, 0px"
+                sizes="(min-width: 1024px) 25vw, 0vw"
                 containerClassName={classNames(
                   "h-24 border-2 rounded-xl shadow-lg bg-white/60 hover-lift",
                   index === selectedImage ? "border-gray-400" : "border-transparent"

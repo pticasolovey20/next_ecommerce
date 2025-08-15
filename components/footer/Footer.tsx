@@ -14,7 +14,7 @@ import Separator from "@/ui/Separator";
 const Footer = () => {
   return (
     <footer className="mt-16 border-t border-gray-200/50 bg-white/40">
-      <div className="max-w-screen-2xl w-full px-4 md:px-8 xl:px-12 mx-auto">
+      <div className="max-w-screen-2xl w-full px-4 lg:px-8 xl:px-12 mx-auto">
         <div
           className={classNames(
             "grid sm:grid-cols-2 gap-x-12 gap-y-6",

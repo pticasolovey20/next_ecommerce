@@ -23,15 +23,16 @@ const AppSidebar = () => {
 
       <SidebarContent>
         <ul className="flex flex-col gap-1">
-          {userMenu.map(({ id, label, icon: Icon }) => (
+          {userMenu.map(({ id, label, icon: Icon, disabled }) => (
             <li key={id}>
               <div
+                role="button"
+                aria-disabled={disabled}
                 className={classNames(
                   "flex items-center gap-2",
-                  "py-1 cursor-pointer",
-                  "text-muted-foreground",
-                  "hover:text-foreground",
-                  "transition-colors duration-300 ease-in-out"
+                  "py-1 text-muted-foreground",
+                  "transition-colors duration-300 ease-in-out",
+                  disabled ? "opacity-50" : "hover:text-foreground cursor-pointer"
                 )}
               >
                 <Icon className="w-7 h-7" />

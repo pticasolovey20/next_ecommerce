@@ -34,7 +34,7 @@ const Header = () => {
           "bg-white shadow-sm z-[30]"
         )}
       >
-        <div className="max-w-screen-2xl w-full h-16 px-4 md:px-8 xl:px-12 mx-auto">
+        <div className="max-w-screen-2xl w-full h-16 px-4 lg:px-8 xl:px-12 mx-auto">
           <div className="relative h-full flex items-center gap-4">
             <Button
               size="icon"
@@ -53,6 +53,7 @@ const Header = () => {
               variant="ghost"
               aria-label="Open profile"
               onClick={handleOpenAuthModal}
+              disabled
               className="w-10 h-10 hover-lift hidden sm:inline-flex shrink-0"
             >
               <CgProfile className="w-full h-full" />
@@ -61,7 +62,8 @@ const Header = () => {
             <Button
               size="icon"
               variant="ghost"
-              aria-label="Open cart"
+              aria-label="Open favorite"
+              disabled
               className="w-10 h-10 hover-lift hidden sm:inline-flex shrink-0"
             >
               <MdFavorite className="w-full h-full" />
@@ -77,7 +79,7 @@ const Header = () => {
                     "bg-green-300 z-[20]"
                   )}
                 >
-                  <span className="font-semibold">{totalItemsCount}</span>
+                  <span className="text-xs font-semibold">{totalItemsCount}</span>
                 </div>
               )}
 

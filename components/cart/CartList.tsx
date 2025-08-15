@@ -1,6 +1,8 @@
 "use client";
 
 import { CartItemData } from "@/types/cart";
+import { useIsMounted } from "@/hooks/useIsMounted";
+import { useScrollLock } from "@/hooks/useScrollLock";
 
 import EmptyList from "@/ui/EmptyList";
 import CartItem from "@/components/cart/CartItem";
@@ -13,6 +15,9 @@ interface CartListProps {
 }
 
 const CartList = ({ isLoading, isEmpty, list }: CartListProps) => {
+  const isMounted = useIsMounted();
+  useScrollLock(!!isLoading, isMounted, document.getElementById("scroll-container")!);
+
   if (isEmpty) {
     return <EmptyList className="h-[300px]" />;
   }

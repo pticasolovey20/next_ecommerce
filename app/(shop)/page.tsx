@@ -2,13 +2,13 @@ import { Fragment } from "react";
 import Banner from "@/components/Banner";
 import ProductList from "@/components/product/ProductList";
 
-const Home = () => {
+const ShopPage = () => {
   return (
     <Fragment>
-      <Banner />
+      <Banner className="my-4" />
       <ProductList />
     </Fragment>
   );
 };
 
-export default Home;
+export default ShopPage;

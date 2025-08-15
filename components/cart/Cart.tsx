@@ -5,6 +5,7 @@ import { classNames } from "@/utils/classNames";
 
 import CartList from "@/components/cart/CartList";
 import Button from "@/ui/Button";
+import Banner from "../Banner";
 
 interface CartProps {
   onClose: () => void;
@@ -44,7 +45,7 @@ const Cart = ({ onClose }: CartProps) => {
       </div>
 
       <div className="px-4 bg-muted">
-        <div className="h-[200px] rounded-lg border border-gray-200 bg-background" />
+        <Banner className="rounded-xl shadow-none" />
       </div>
     </div>
   );
