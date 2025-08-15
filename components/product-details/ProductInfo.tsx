@@ -24,8 +24,8 @@ const ProductInfo = ({ productId }: ProductInfoProps) => {
           </Fragment>
         ) : (
           <Fragment>
-            <h1 className="text-4xl font-medium mb-2">{product!.title}</h1>
-            <p className="text-xl text-muted-foreground">{product!.description}</p>
+            <h1 className="text-3xl lg:text-4xl font-medium mb-2">{product!.title}</h1>
+            <p className="text-lg lg:text-xl text-muted-foreground">{product!.description}</p>
           </Fragment>
         )}
       </div>

@@ -34,7 +34,7 @@ const Header = () => {
           "bg-white shadow-sm z-[30]"
         )}
       >
-        <div className="max-w-screen-2xl w-full h-16 px-4 md:px-8 xl:px-12 mx-auto">
+        <div className="max-w-screen-2xl w-full h-16 px-4 lg:px-8 xl:px-12 mx-auto">
           <div className="relative h-full flex items-center gap-4">
             <Button
               size="icon"
