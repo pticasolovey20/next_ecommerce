@@ -27,8 +27,8 @@ const ProductCard = ({ product }: ProductCardProps) => {
       <Link href={`/products/${product.id}`} className="flex flex-col h-full">
         <ProductImage
           fill
+          priority
           quality={75}
-          loading="lazy"
           src={product.assets[0].src}
           alt={product.assets[0].alt}
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw, 25vw"

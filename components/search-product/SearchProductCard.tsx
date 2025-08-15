@@ -24,6 +24,7 @@ const SearchProductCard = ({ product, onClick }: SerachProductCardProps) => {
             quality={75}
             src={product.assets[0].src}
             alt={product.assets[0].alt}
+            sizes="64px"
             containerClassName="shrink-0 w-16 h-16 rounded-md"
           />
 
