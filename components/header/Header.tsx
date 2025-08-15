@@ -77,7 +77,7 @@ const Header = () => {
                     "bg-green-300 z-[20]"
                   )}
                 >
-                  <span className="font-semibold">{totalItemsCount}</span>
+                  <span className="text-xs font-semibold">{totalItemsCount}</span>
                 </div>
               )}
 
