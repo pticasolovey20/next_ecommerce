@@ -4,4 +4,5 @@ export interface UserMenuItemData {
   id: number;
   label: string;
   icon: IconType;
+  disabled: boolean;
 }

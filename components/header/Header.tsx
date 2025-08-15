@@ -53,6 +53,7 @@ const Header = () => {
               variant="ghost"
               aria-label="Open profile"
               onClick={handleOpenAuthModal}
+              disabled
               className="w-10 h-10 hover-lift hidden sm:inline-flex shrink-0"
             >
               <CgProfile className="w-full h-full" />
@@ -61,7 +62,8 @@ const Header = () => {
             <Button
               size="icon"
               variant="ghost"
-              aria-label="Open cart"
+              aria-label="Open favorite"
+              disabled
               className="w-10 h-10 hover-lift hidden sm:inline-flex shrink-0"
             >
               <MdFavorite className="w-full h-full" />
