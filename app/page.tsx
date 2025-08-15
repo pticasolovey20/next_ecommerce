@@ -5,7 +5,7 @@ import ProductList from "@/components/product/ProductList";
 const Home = () => {
   return (
     <Fragment>
-      <Banner />
+      <Banner className="my-4" />
       <ProductList />
     </Fragment>
   );
