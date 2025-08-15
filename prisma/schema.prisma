@@ -27,27 +27,30 @@ model Product {
 
   assets            Json?
   features          Json?
+
+  cartItems         CartItem[]
 }
 
  model Cart {
   id                String   @id @default(cuid())
   sessionId         String   @unique 
+
   createdAt         DateTime @default(now())
   updatedAt         DateTime @updatedAt
   
-  items             Cart_Item[]
+  items             CartItem[]
 }
 
-model Cart_Item {
+model CartItem  {
   id                String   @id @default(cuid())
   cartId            String
   productId         String
   quantity          Int      @default(1)
-  price             Decimal  @db.Decimal(10, 2)
   createdAt         DateTime @default(now())
   updatedAt         DateTime @updatedAt
-  
+
   cart              Cart     @relation(fields: [cartId], references: [id], onDelete: Cascade)
+  product           Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
   
   @@unique([cartId, productId])
 }

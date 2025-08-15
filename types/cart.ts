@@ -1,20 +1,30 @@
 import { ProductData } from "@/types/product";
 
-export interface CartItemData extends ProductData {
+export interface CartItemData {
+  id: string;
+  cartId: string;
+  productId: string;
   quantity: number;
+  createdAt: string;
+  updatedAt: string;
+  product: ProductData;
 }
 
 export interface CartData {
   id: string;
-  userId?: string;
-  sessionId?: string;
-  items: CartItemData[];
-  total: number;
+  sessionId: string;
   createdAt: string;
   updatedAt: string;
+  items: CartItemData[];
 }
 
 export interface CartResponseData {
   success: boolean;
   cart: CartData;
+  message?: string;
+}
+
+export interface CartItemMutationValue {
+  productId: string;
+  quantity: number;
 }

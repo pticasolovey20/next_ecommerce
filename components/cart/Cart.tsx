@@ -1,26 +1,21 @@
-import useCart from "@/hooks/cart/useCart";
-import { useCartStore } from "@/stores/useCartStore";
+"use client";
+
+import { useCartData } from "@/hooks/cart/useCartData";
 import { classNames } from "@/utils/classNames";
 
 import CartList from "@/components/cart/CartList";
 import Button from "@/ui/Button";
 
-const Cart = () => {
-  const {
-    isLoading,
-    // isEmpty,
-    // cart
-  } = useCart();
+interface CartProps {
+  onClose: () => void;
+}
 
-  const cartList = useCartStore((state) => state.cartList);
-  const getTotalPrice = useCartStore((state) => state.getTotalPrice);
-  const closeCart = useCartStore((state) => state.closeCart);
-
-  const isEmpty = cartList.length <= 0;
+const Cart = ({ onClose }: CartProps) => {
+  const { isLoading, isEmpty, items, totalPrice } = useCartData();
 
   return (
     <div className="relative">
-      <CartList isLoading={isLoading} isEmpty={isEmpty} list={cartList} />
+      <CartList isLoading={isLoading} isEmpty={isEmpty} list={items} />
 
       <div className="sticky -bottom-4 p-4 border-t border-gray-200 bg-muted">
         <div className="flex flex-col gap-4">
@@ -32,12 +27,12 @@ const Cart = () => {
               )}
             >
               <span className="font-semibold text-base">TOTAL:</span>
-              <span className="text-2xl font-bold">$ {getTotalPrice()}</span>
+              <span className="text-2xl font-bold">$ {totalPrice}</span>
             </div>
           )}
 
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button size="lg" variant="secondary" onClick={closeCart} className="w-full hover-lift">
+            <Button size="lg" variant="secondary" onClick={onClose} className="w-full hover-lift">
               Continue Shopping
             </Button>
 
