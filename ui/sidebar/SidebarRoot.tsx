@@ -15,8 +15,7 @@ interface SidebarRootProps {
 
 const SidebarRoot = ({ isOpen, onClose, children }: SidebarRootProps) => {
   const isMounted = useIsMounted();
-
-  useScrollLock(isOpen, isMounted);
+  useScrollLock(isOpen, isMounted, document.body);
 
   return (
     <Fragment>
