@@ -5,7 +5,7 @@ interface InfoLayoutProps {
 }
 
 const InfoLayout = ({ children }: InfoLayoutProps) => {
-  return <main className="p-4">{children}</main>;
+  return <main className="flex-1 flex items-center justify-center p-4">{children}</main>;
 };
 
 export default InfoLayout;
