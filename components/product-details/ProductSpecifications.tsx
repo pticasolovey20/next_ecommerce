@@ -12,7 +12,7 @@ const ProductSpecifications = ({ product }: ProductSpecificationsProps) => {
 
   return (
     <CardContainer>
-      <h3 className="text-lg font-semibold text-gray-700 mb-4">FEATURES</h3>
+      <h2 className="text-xl font-semibold text-gray-700 mb-4">FEATURES</h2>
 
       <ul className="space-y-3">
         {features.map(({ label, value }, index) => (
