@@ -10,21 +10,21 @@ interface ProductPriceProps {
 const ProductPrice = ({ className, size = "md", product }: ProductPriceProps) => {
   const sizeClasses = {
     sm: {
-      price: "text-lg",
-      oldPrice: "text-sm",
-      discount: "text-xs px-2 py-0.5",
+      price: "text-base sm:text-lg",
+      oldPrice: "text-xs sm:text-sm",
+      discount: "text-[10px] px-1.5 py-0.5 sm:text-xs sm:px-2 sm:py-0.5",
     },
 
     md: {
-      price: "text-xl",
+      price: "text-lg md:text-xl",
       oldPrice: "text-base",
-      discount: "text-sm px-2 py-1 rounded-md",
+      discount: "px-2 py-0.5 text-sm md:px-3 md:py-1 rounded-md",
     },
 
     lg: {
-      price: "text-4xl",
-      oldPrice: "text-xl",
-      discount: "text-base px-4 py-1.5 rounded-lg",
+      price: "text-3xl lg:text-4xl",
+      oldPrice: "text-lg lg:text-xl",
+      discount: "text-base lg:text-lg px-3 lg:px-4 py-1 rounded-md lg:rounded-lg",
     },
   };
 
@@ -43,7 +43,7 @@ const ProductPrice = ({ className, size = "md", product }: ProductPriceProps) =>
           <span
             className={classNames(
               "text-white font-medium",
-              "bg-red-500",
+              "bg-[#C62828]",
               sizeClasses[size].discount
             )}
           >
