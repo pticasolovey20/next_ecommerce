@@ -17,7 +17,7 @@ interface ModalRootProps {
 const ModalRoot = ({ isOpen, onClose, maxWidth, className, children }: ModalRootProps) => {
   const isMounted = useIsMounted();
 
-  useScrollLock(isOpen, isMounted);
+  useScrollLock(isOpen, isMounted, document.body);
 
   useEffect(() => {
     if (!isMounted) return;

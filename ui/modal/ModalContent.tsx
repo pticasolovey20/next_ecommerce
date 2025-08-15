@@ -9,6 +9,7 @@ interface ModalContentProps {
 const ModalContent = ({ className, children }: ModalContentProps) => {
   return (
     <div
+      id="scroll-container"
       className={classNames("flex-1 overflow-x-hidden overflow-y-auto bg-background", className)}
     >
       {children}
